@@ -21,12 +21,22 @@ copy can be committed, regenerated, and audited without permission hurdles.
 | `nps-yellowstone/` | National Park Service visitor bulletin | nps.gov/yell | Public domain (U.S. federal) |
 | `nasa-artemis2/` | NASA Artemis II mission overview | nasa.gov/artemis | Public domain (U.S. federal) |
 | `noaa-hurricane-outlook/` | NWS hurricane preparedness | weather.gov | Public domain (U.S. federal) |
+| `census-income2023/` | Census Bureau income brief P60-282 | census.gov | Public domain (U.S. federal) |
+| `federalregister-foia/` | Federal Register FOIA procedural rule | federalregister.gov | Public domain (U.S. federal) |
+| `smithsonian-apollo11/` | Smithsonian Apollo 11 object page | airandspace.si.edu | Smithsonian public resources |
 
 The sources are paraphrased into compact single-page briefs (the engine is
 built for HTML in, HTML out at page scale); every fact in them is real and
 checkable at the linked agencies. No hex colors are declared in the copy —
 unlike the in-house examples — so the engine must derive a palette from
 language alone. That is the point.
+
+The lane now spans the hard cases by kind: a dense numeric brief
+(`census-income2023` — nine dollar figures that must survive), procedural
+rule language (`federalregister-foia` — dates and citations, no numbers),
+and descriptive object copy (`smithsonian-apollo11` — names, weights,
+coordinates). Routed directions: infographic, simulation, simulation —
+proof the router reads the content, not the lane.
 
 ## Regeneration
 

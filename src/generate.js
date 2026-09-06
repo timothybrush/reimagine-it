@@ -518,6 +518,8 @@ function generate(opts) {
     '.plate-card figcaption span{font:10px ' + mono + ';opacity:.6}' +
     '.plate-card figcaption strong{font:400 19px ' + serif + ';letter-spacing:-.01em}' +
     '.plate-card figcaption em{font:10px ' + mono + ';color:var(--a);font-style:normal;margin-left:auto;letter-spacing:.06em}';
+  var orbitMapCss =
+    '.orbit-map{display:block;width:100%;max-width:520px;height:auto;margin:0 auto}.orbit-map .orbit-ring{fill:none;stroke:color-mix(in srgb,var(--a) 38%,transparent);stroke-width:1;stroke-dasharray:2 7;animation:orbit-drift 90s linear infinite;transform-origin:280px 280px}.orbit-map .orbit-ring.r2{stroke-dasharray:1 9;animation-duration:140s;animation-direction:reverse}.orbit-map .orbit-core circle{fill:color-mix(in srgb,var(--a) 14%,transparent);stroke:var(--a);stroke-width:1.5}.orbit-map .orbit-core text{fill:var(--a);font:600 30px ' + sans + ';text-anchor:middle}.orbit-map .orbit-core .orbit-sub{fill:var(--m);font:9px ' + mono + ';letter-spacing:.22em;text-transform:uppercase}.orbit-map .orbit-node circle{fill:var(--s);stroke:color-mix(in srgb,var(--a) 55%,transparent);stroke-width:1.2;transition:stroke .2s ease}.orbit-map .orbit-node:hover circle{stroke:var(--a)}.orbit-map .orbit-node text{fill:var(--i);font:11px ' + mono + ';text-anchor:middle}.orbit-map .orbit-node .orbit-val{fill:var(--a);font-weight:600}@keyframes orbit-drift{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.orbit-map .orbit-ring{animation:none}}';
   var footerCss =
     '.band-footer{max-width:1080px;margin:0 auto;padding:40px 28px 64px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;border-top:1px solid color-mix(in srgb,var(--i) 14%,transparent)}.band-footer .eyebrow{display:block;font-size:10px}.band-footer strong{font:400 22px ' + serif + ';letter-spacing:-.02em;color:var(--a)}.band-footer ul{display:flex;gap:18px;flex-wrap:wrap;list-style:none}.band-footer a{color:var(--m);text-decoration:none;border-bottom:1px solid transparent}.band-footer a:hover{color:var(--a);border-color:var(--a)}@media(max-width:560px){.band-footer{display:block}.band-footer nav{margin-top:18px}}';
 
@@ -579,13 +581,12 @@ function generate(opts) {
       '.hero-copy{position:relative;min-width:0;max-width:56ch}' +
       '.hero-art{position:relative;aspect-ratio:1;border-radius:28px;overflow:hidden;border:1px solid ' + border + ';background:radial-gradient(120% 120% at 28% 22%,' + accent + '2e,transparent 58%),radial-gradient(120% 120% at 78% 82%,' + muted + '24,transparent 60%);transform:translateY(var(--drift)) rotate(' + variation.tilt + 'deg);box-shadow:0 30px 80px -30px rgba(0,0,0,.6),inset 0 0 0 1px rgba(255,255,255,.08)}' +
       '.hero-art::after{content:"";position:absolute;inset:0;border-radius:28px;box-shadow:inset 0 0 90px rgba(0,0,0,.35);pointer-events:none}' +
-      '.art-orbit{position:absolute;inset:14%;border:1px dashed ' + accent + '66;border-radius:50%;animation:art-spin 26s linear infinite}' +
-      '.art-dot{position:absolute;top:50%;left:50%;width:58%;height:58%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 32% 30%,' + tint(accent, .28) + ',transparent 68%),radial-gradient(circle at 68% 72%,' + shade(accent, .18) + ',transparent 70%);filter:blur(2px);animation:art-breathe 5s ease-in-out infinite}' +
-      '.art-glyphs{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;gap:10px;z-index:2}.art-glyphs .glyph-tile{width:46px;height:46px;box-shadow:0 14px 30px -12px rgba(0,0,0,.55)}' +
-      '.art-prism{position:absolute;width:38%;right:6%;bottom:4%;z-index:1;opacity:.92}' +
-      '.art-chip{position:absolute;font:700 9px ' + mono + ';letter-spacing:.12em;text-transform:uppercase;color:var(--a);background:var(--g);border:1px solid ' + border + ';border-radius:999px;padding:7px 12px;box-shadow:0 10px 28px -12px rgba(0,0,0,.5);z-index:3}' +
-      '.art-chip.c1{top:14%;left:8%}.art-chip.c2{top:24%;right:6%}.art-chip.c3{bottom:18%;left:12%}.art-chip.c4{bottom:8%;right:20%}' +
-      '@keyframes art-spin{to{transform:rotate(360deg)}}@keyframes art-breathe{50%{transform:translate(-50%,-50%) scale(1.08)}}' +
+      '.proof-strip{overflow:hidden;border-top:1px solid ' + border + ';border-bottom:1px solid ' + border + ';padding:16px 0;margin-top:56px}.proof-track{display:flex;gap:44px;width:max-content;animation:proof-run 34s linear infinite}.proof-mirror{display:inline-flex;gap:44px;padding-left:44px}.proof{display:inline-flex;align-items:baseline;gap:10px;white-space:nowrap;font:12px ' + mono + ';color:var(--m)}.proof::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--a);align-self:center}.proof b{color:var(--a);font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:10px}@keyframes proof-run{to{transform:translateX(-50%)}}@media(prefers-reduced-motion:reduce){.proof-track{animation:none;width:auto;flex-wrap:wrap}}' +
+      '.credit-wall{margin-top:72px;border-top:1px solid ' + border + ';padding-top:40px;padding-bottom:80px;display:grid;grid-template-columns:minmax(260px,1.2fr) 2fr;gap:clamp(28px,5vw,72px)}.credit-brand strong{display:block;font:400 clamp(26px,4vw,40px)/1.05 ' + serif + ';letter-spacing:-.03em;color:var(--a);margin-top:14px}.credit-brand p{font-size:13px;line-height:1.65;opacity:.62;max-width:34ch;margin-top:14px}.credit-brand .action{margin-top:18px}.credit-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:24px;align-content:start;margin:0}.credit-cols dt{font:10px ' + mono + ';letter-spacing:.16em;text-transform:uppercase;color:var(--m);padding-bottom:10px;border-bottom:1px solid ' + border + '}.credit-cols dd{margin:12px 0 0;font:12px/1.9 ' + mono + ';color:var(--i);word-break:break-word}.credit-cols dd em{font-style:normal;color:var(--a)}.credit-cols dd a{color:var(--m);text-decoration:none;border-bottom:1px solid transparent}.credit-cols dd a:hover{color:var(--a);border-color:var(--a)}@media(max-width:760px){.credit-wall{grid-template-columns:1fr}}' +
+
+
+
+
       '.hero h1{max-width:15ch}' +
       '@media(max-width:900px){.hero{grid-template-columns:1fr;gap:28px}.hero-art{display:none}}' +
       '.hero::before{content:"";position:absolute;width:520px;height:360px;left:calc(30% + var(--drift));top:6%;background:radial-gradient(ellipse,' + accent + '22,transparent 68%);pointer-events:none;filter:blur(60px)}' +
@@ -620,7 +621,7 @@ function generate(opts) {
       '.marquee-track i{color:var(--a);font-style:normal}' +
       '@keyframes marq{to{transform:translateX(-50%)}}' +
       '@media(prefers-reduced-motion:reduce){.marquee-track{animation:none;flex-wrap:wrap}}' +
-      '.measure-ledger{margin-top:56px;border-top:1px solid ' + border + ';padding-top:26px}.measure-ledger dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px 28px;margin:18px 0 0}.measure-ledger .measure{border-left:2px solid color-mix(in srgb,var(--a) 55%,transparent);padding-left:14px}.measure-ledger dt{font:10px ' + mono + ';letter-spacing:.14em;text-transform:uppercase;color:var(--m)}.measure-ledger dd{margin:6px 0 0;font:600 18px ' + sans + ';letter-spacing:-.02em;color:var(--a)}' + kitCss('mesh', 'glyphs', 'prism', 'stats', 'marquee', 'cta', 'footer');
+      '.measure-ledger{margin-top:56px;border-top:1px solid ' + border + ';padding-top:26px}.measure-ledger dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px 28px;margin:18px 0 0}.measure-ledger .measure{border-left:2px solid color-mix(in srgb,var(--a) 55%,transparent);padding-left:14px}.measure-ledger dt{font:10px ' + mono + ';letter-spacing:.14em;text-transform:uppercase;color:var(--m)}.measure-ledger dd{margin:6px 0 0;font:600 18px ' + sans + ';letter-spacing:-.02em;color:var(--a)}' + kitCss('mesh', 'orbitmap');
   function measureLedger(from) {
     // The four KPI cards above are the rhythm; this ledger is the contract.
     // Without it, any source carrying more than four measurable facts had
@@ -633,8 +634,76 @@ function generate(opts) {
       }).join('') + '</dl></section>';
   }
 
-  var stats = statsBand(4);
-    return page(content.title, css, '<main class="landing"><div class="topline"><span>' + esc(label) + '</span><span>' + anchors.length + ' source signals</span></div><header class="hero"><div class="hero-copy"><span class="eyebrow">' + esc(content.profile) + '</span><h1>' + esc(content.title) + '</h1><p class="lede">' + esc(paragraphAt(0, anchors[0])) + '</p><div class="actions"><a class="action" href="' + esc(primaryHref) + '">' + esc(primaryText) + ' →</a><a class="action secondary" href="#features">See the signals</a></div></div><div class="hero-art" aria-hidden="true">' + meshBackdrop() + '<div class="art-dot"></div><div class="art-orbit"></div><div class="art-glyphs">' + glyphTiles(anchors, 3, 46) + '</div><div class="art-prism">' + isoPrism(content.title, 30) + '</div><span class="art-chip c1">' + esc(anchors[0] || 'start') + '</span><span class="art-chip c2">' + esc(anchors[1 % Math.max(anchors.length, 1)] || 'signal') + '</span><span class="art-chip c3">' + esc(anchors[2 % Math.max(anchors.length, 1)] || 'core') + '</span><span class="art-chip c4">' + esc(anchors[3 % Math.max(anchors.length, 1)] || 'detail') + '</span></div></header>' + marqueeBand() + '<section class="feature-grid" id="features" aria-label="Source features">' + features + '</section>' + (stats || '') + measureLedger(4) + ctaBand() + footerBand() + '</main>');
+  var facts = factsFor(content, anchors);
+    return page(content.title, css, '<main class="landing"><div class="topline"><span>' + esc(label) + '</span><span>' + esc(content.profile) + '</span></div><header class="hero"><div class="hero-copy"><span class="eyebrow">' + esc(label) + ' · ' + anchors.length + ' source signals</span><h1>' + esc(content.title) + '</h1><p class="lede">' + esc(paragraphAt(0, anchors[0])) + '</p><div class="actions"><a class="action" href="' + esc(primaryHref) + '">' + esc(primaryText) + ' →</a><a class="action secondary" href="#features">See the signals</a></div></div><div class="hero-art" aria-hidden="false">' + meshBackdrop() + orbitMap() + '</div></header>' +
+      proofStrip() +
+      '<section class="feature-grid" id="features" aria-label="Source features">' + features + '</section>' +
+      measureLedger(0) +
+      '<section class="credit-wall" aria-label="Source credits"><div class="credit-brand"><span class="eyebrow">The brief, verbatim</span><strong>' + esc(content.title) + '</strong><p>' + esc(paragraphAt(1, anchors[1] || anchors[0])) + '</p><a class="action" href="' + esc(primaryHref) + '">' + esc(primaryText) + ' →</a></div>' + creditCols() +      '</section></main>');
+  }
+
+  // Landing's own art system — the orbit map. Each source anchor becomes a
+  // node on a concentric ring around the title's initial; radius comes from
+  // the anchor's hash, angle from its index. Facts become orbit values.
+  // This is the hero-form divergence from webpage's article flow: landing
+  // shows the whole source as one navigable system.
+  function orbitMap() {
+    var nodes = anchors.slice(0, 6).map(function(anchor, index) {
+      var hash = hashString(anchor + ':' + index);
+      var ring = 1 + (hash % 3);
+      var angle = (index / Math.max(anchors.slice(0, 6).length, 1)) * 2 * Math.PI + (hash % 40) / 40;
+      var cx = Math.round(280 + ring * 82 * Math.cos(angle));
+      var cy = Math.round(280 + ring * 82 * Math.sin(angle));
+      var fact = facts[index] && facts[index].value;
+      var initial = String(anchor).trim().charAt(0).toUpperCase() || '·';
+      return '<g class="orbit-node"><circle cx="' + cx + '" cy="' + cy + '" r="21"/>' +
+        '<text x="' + cx + '" y="' + (cy - 30) + '">' + esc(anchor.length > 22 ? anchor.slice(0, 21) + '…' : anchor) + '</text>' +
+        (fact ? '<text class="orbit-val" x="' + cx + '" y="' + (cy + 34) + '">' + esc(fact) + '</text>' : '') +
+        '<title>' + esc(anchor) + '</title><desc>' + initial + '</desc></g>';
+    }).join('');
+    var initial = String(content.title).trim().charAt(0).toUpperCase() || '·';
+    return '<svg class="orbit-map" viewBox="0 0 560 560" role="img" aria-label="Map of the source: each anchor orbits the title"><circle class="orbit-ring" cx="280" cy="280" r="82"/><circle class="orbit-ring r2" cx="280" cy="280" r="164"/><circle class="orbit-ring" cx="280" cy="280" r="246"/>' +
+      '<g class="orbit-core"><circle cx="280" cy="280" r="56"/><text x="280" y="292">' + esc(initial) + '</text><text class="orbit-sub" x="280" y="316">' + anchors.length + ' signals</text></g>' +
+      nodes + '</svg>';
+  }
+
+  // Landing's own proof strip — a marquee of verbatim source facts (number +
+  // label), duplicated once for a seamless loop. Replaces the shared stats band.
+  function proofStrip() {
+    var entries = facts.slice(0, 10).map(function(fact) {
+      return '<span class="proof"><b>' + esc(fact.kind) + '</b> ' + esc(fact.value) + '</span>';
+    });
+    if (!entries.length) {
+      entries = anchors.slice(0, 6).map(function(anchor) {
+        return '<span class="proof"><b>anchor</b> ' + esc(anchor) + '</span>';
+      });
+    }
+    var run = entries.join('');
+    return '<div class="proof-strip" aria-hidden="true"><div class="proof-track"><span class="proof-mirror">' + run + '</span><span class="proof-mirror">' + run + '</span></div></div>';
+  }
+
+  // Landing's own closing wall — links and emails grouped by kind, the
+  // source's own contact surface as a design element. Replaces band-footer.
+  function creditCols() {
+    var cols = [];
+    var links = content.links.slice(0, 10);
+    if (links.length) {
+      cols.push('<div class="credit-col"><dt>Links in the source</dt><dd>' + links.map(function(l) {
+        return '<a href="' + esc(l.href) + '">' + esc(l.label || l.href) + '</a>';
+      }).join('<br>') + '</dd></div>');
+    }
+    if (content.emails.length) {
+      cols.push('<div class="credit-col"><dt>Reach</dt><dd>' + content.emails.map(function(e) {
+        return '<em>' + esc(e) + '</em>';
+      }).join('<br>') + '</dd></div>');
+    }
+    if (content.dates.length) {
+      cols.push('<div class="credit-col"><dt>Dates in play</dt><dd>' + content.dates.slice(0, 6).map(function(d) {
+        return esc(d);
+      }).join('<br>') + '</dd></div>');
+    }
+    if (!cols.length) return '';
+    return '<dl class="credit-cols">' + cols.join('') + '</dl>';
   }
 
   function dashboard() {
@@ -744,7 +813,8 @@ function generate(opts) {
       footer: footerCss,
       filmstrip: filmstripCss,
       rank: rankCss,
-      plates: platesCss
+      plates: platesCss,
+      orbitmap: orbitMapCss
     };
     var out = '';
     for (var i = 0; i < arguments.length; i++) {

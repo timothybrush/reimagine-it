@@ -433,7 +433,7 @@ footer a { color: var(--hot); }
       </div>
 
       <h3 class="source-name" id="public-proof">Proof — real public-domain pages</h3>
-      <p class="source-sub">Three U.S. government pages — <b>National Park Service</b>, <b>NASA</b>, <b>NOAA/NWS</b> — rebuilt by Auto with no declared palette to lean on: the engine derives color from language alone. Artemis II lands the <code>3js</code> orbit view (100%), the hurricane outlook a <code>landing</code> brief (100%), the Yellowstone bulletin an <code>editorial</code> feature (84% — the floor is 80). Sources are U.S. federal public domain, committed in <a href="https://github.com/Kayforkind/reimagine-it/tree/main/examples/public-sources"><code>examples/public-sources/</code></a>.</p>
+      <p class="source-sub">Six U.S. government and public-collection pages — <b>National Park Service</b>, <b>NASA</b>, <b>NOAA/NWS</b>, <b>Census Bureau</b>, <b>Federal Register</b>, <b>Smithsonian</b> — rebuilt by Auto with no declared palette to lean on: the engine derives color from language alone. Artemis II lands the <code>3js</code> orbit view (100%), the hurricane outlook a <code>landing</code> brief (100%), the Yellowstone bulletin an <code>editorial</code> feature (84% — the floor is 80). The 2026 additions stress new failure modes: the <b>Census income brief</b> carries nine dollar figures that must survive (<code>infographic</code>, 21/21), the <b>Federal Register</b> FOIA rule is all dates and citations (<code>simulation</code>, 17/17), and the <b>Smithsonian</b> Apollo 11 object page is descriptive copy (<code>simulation</code>, 21/21). Sources are public domain, committed in <a href="https://github.com/Kayforkind/reimagine-it/tree/main/examples/public-sources"><code>examples/public-sources/</code></a>.</p>
       <div class="info-showcase reveal">
         <figure class="info-wide"><img src="examples/public-sources/nasa-artemis2/auto-desktop.png" alt="NASA Artemis II mission overview redesigned as an interactive 3D orbit view at desktop width" loading="lazy"><figcaption>Artemis II — desktop <code>--auto → 3js</code></figcaption></figure>
         <figure class="info-tall"><img src="examples/public-sources/nasa-artemis2/auto-phone.png" alt="NASA Artemis II mission overview at tall phone width" loading="lazy"><figcaption>Artemis II — mobile</figcaption></figure>
@@ -441,6 +441,14 @@ footer a { color: var(--hot); }
       <div class="info-showcase reveal">
         <figure class="info-wide"><img src="examples/public-sources/nps-yellowstone/auto-desktop.png" alt="Yellowstone National Park visitor bulletin redesigned as an editorial feature at desktop width" loading="lazy"><figcaption>Yellowstone bulletin — desktop <code>--auto → editorial</code></figcaption></figure>
         <figure class="info-tall"><img src="examples/public-sources/noaa-hurricane-outlook/auto-phone.png" alt="National Weather Service hurricane outlook redesigned as a briefing landing page at tall phone width" loading="lazy"><figcaption>hurricane outlook — mobile <code>--auto → landing</code></figcaption></figure>
+      </div>
+      <div class="info-showcase reveal">
+        <figure class="info-wide"><img src="examples/public-sources/census-income2023/auto-desktop.png" alt="Census Bureau 2023 income brief redesigned as a ranked statistical poster at desktop width" loading="lazy"><figcaption>Census income brief — desktop <code>--auto → infographic</code></figcaption></figure>
+        <figure class="info-tall"><img src="examples/public-sources/census-income2023/auto-phone.png" alt="Census Bureau 2023 income brief at tall phone width" loading="lazy"><figcaption>Census income brief — mobile</figcaption></figure>
+      </div>
+      <div class="info-showcase reveal">
+        <figure class="info-wide"><img src="examples/public-sources/federalregister-foia/auto-desktop.png" alt="Federal Register FOIA procedural rule redesigned as a playable timeline simulation at desktop width" loading="lazy"><figcaption>Federal Register FOIA rule — desktop <code>--auto → simulation</code></figcaption></figure>
+        <figure class="info-tall"><img src="examples/public-sources/smithsonian-apollo11/auto-phone.png" alt="Smithsonian Apollo 11 command module page at tall phone width" loading="lazy"><figcaption>Apollo 11 Columbia — mobile <code>--auto → simulation</code></figcaption></figure>
       </div>
 
       <h3 class="source-name" id="end-user-proof">Source → Auto, on desktop and phone</h3>
@@ -599,7 +607,7 @@ fidelity   every source fact present</pre>
 
     <section class="install-section" id="quality">
       <h2>Measured quality — every direction benchmarked</h2>
-      <p class="sub">All 17 tokens × 4 representative sources score <strong>100/100 usability and full fidelity</strong>, with 96.5% mean class-set difference (no two directions produce the same page). Benchmarked against the same bar Auto itself applies: standalone HTML, source title and anchors retained, focus-visible, reduced-motion, no placeholder copy, no external fetch.</p>
+      <p class="sub">All 17 tokens × 4 representative sources score <strong>100/100 usability and full fidelity</strong>, with 96.8% mean class-set difference (no two directions produce the same page; the closest pair, webpage+landing, rose from 76% to 91.7% after landing grew its own hero form). Benchmarked against the same bar Auto itself applies: standalone HTML, source title and anchors retained, focus-visible, reduced-motion, no placeholder copy, no external fetch.</p>
       <div class="method-steps">
         <div class="method-card reveal">
           <span class="step">CI-enforced</span>

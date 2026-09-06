@@ -6,10 +6,12 @@ description: >-
   already in that file. CLI: npx reimagine-it --auto -i page.html -o out.html;
   also variations, lock, and audit. Use when the user says /reimagine-it, "reimagine it", "reinvent this",
   "redesign this page", "make an infographic", wants a content-aware redesign
-  or a visual leap instead of a mood board.   Tokens: webpage, infographic,
-  svg, 3js, simulation, artistic, cinematic, dashboard, photography, landing,
-  lookbook, particles, plus leftover words as a brief. Also /reimagine-it audit
-  for quality checks. The agent runs the CLI; it does not hand-author the page.
+  or a visual leap instead of a mood board.   All 17 tokens: webpage,
+  infographic, svg, 3js, simulation, artistic, cinematic, dashboard,
+  photography, landing, editorial, gradient, showcase, motion, glass,
+  lookbook, particles — plus leftover words as a brief. Also /reimagine-it
+  audit for quality checks. The agent runs the CLI; it does not hand-author
+  the page.
   Installed via npx skills add Kayforkind/reimagine-it or plugin marketplace.
   Not /better. Not a mood board. Does not ingest PDF, PPTX, or DOCX.
 license: MIT
