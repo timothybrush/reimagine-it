@@ -4,7 +4,17 @@ All notable changes to reimagine-it.
 
 ---
 
-## v2.10.0 (current)
+## v2.11.0 (current)
+
+### The proof-breadth release — distinct directions, real-world pages
+
+- **Unique layout grammar per direction.** The clusters that converged now carry their own compositions: cinematic is a filmstrip + timecode chapter grid with per-scene frames, photography is monospace-captioned plates with no overlays, motion draws labeled orbit rings carrying the anchors, dashboard ships a station-index head-sheet, infographic ranks source numbers as scale bars instead of the shared donut, editorial gets a data sheet in its aside, and lookbook drops the glyph chips. Mean class-set difference between directions on the same source: **94.6% → 96.5%** (worst pair webpage+landing at 76% — tracked in #38).
+- **Public-source proof lane.** `examples/public-sources/` rebuilds **real U.S. government pages** — NPS Yellowstone bulletin, NASA Artemis II, NOAA/NWS hurricane outlook — with no declared palette in the copy, so color comes from language alone. Auto routes them to 3js (100%), landing (100%), and editorial (84%, floor 80). The reproduction guard now covers all 14 committed artifacts byte-identically, with a Windows-safe scratch filename.
+- **Claims parity.** Six stale "runners-up" rows in the README example table corrected against the regenerated Auto reports; docs site gains the public-proof section; intake labels (`public-source`, `auto-routing`, `token-distinctness`) and tracking issues #38/#39 filed.
+
+## v2.10.0
+
+### The product-honesty release — one engine, honest routing
 
 - **Skill is a wrapper, not a second engine.** `/reimagine-it` must run `npx reimagine-it`. Hand-authoring HTML when the CLI can run is a fail.
 - **Lookbook Auto false positive.** Flu-shot / civic list pages no longer earn lookbook from item count or a bare `collection` / `drop` match. Fashion lane requires streetwear/lookbook language, not `\bdrop\b`.
