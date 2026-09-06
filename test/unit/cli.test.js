@@ -220,6 +220,28 @@ test('3js token produces canvas with script', function() {
   assert.ok(out.indexOf('getContext') > 0, 'should have canvas drawing code');
 });
 
+test('3js token carries content-derived art in the gutter', function() {
+  var out = generate({content: sampleContent, token: '3js', seed: 42});
+  assert.ok(out.indexOf('glyph-tile') > 0, '3js needs anchor glyph tiles');
+  assert.ok(out.indexOf('iso-prism') > 0, '3js needs an isometric prism');
+  assert.ok(out.indexOf('donut-chart') > 0 || out.indexOf('mini-bars') > 0, '3js needs a number chart when facts exist');
+});
+
+test('lookbook does not win on flu shots or civic lists', function() {
+  var clinic = fs.readFileSync(path.join(__dirname, '../../examples/community/riverside-clinic/source.html'), 'utf8');
+  var content = extractContent(clinic, 'riverside-clinic.html');
+  var ranked = autoMod.rankTokens(content, 5);
+  assert.notStrictEqual(ranked[0].token, 'lookbook', 'flu-shot bulletin must not Auto to lookbook');
+  assert.ok(ranked.every(function(entry) { return entry.token !== 'lookbook' || entry.score < ranked[0].score; }));
+  assert.ok(autoMod.scoreToken('lookbook', content) < autoMod.scoreToken('infographic', content), 'infographic must beat lookbook on a flu clinic');
+});
+
+test('lookbook still scores a photoshoot collection', function() {
+  var html = '<h1>Spring lookbook</h1><p>Runway photoshoot, twelve outfits, capsule collection.</p><ul><li>Look 01</li><li>Look 02</li><li>Look 03</li></ul>';
+  var content = extractContent(html, 'lookbook.html');
+  assert.ok(autoMod.scoreToken('lookbook', content) > 0, 'true lookbook vocab should score');
+});
+
 test('simulation token produces timeline', function() {
   var out = generate({content: sampleContent, token: 'simulation', seed: 42});
   assert.ok(out.indexOf('tl') > 0 || out.indexOf('timeline') > 0 || out.indexOf('track') > 0, 'should have timeline elements');

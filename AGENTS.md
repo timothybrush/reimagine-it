@@ -8,9 +8,9 @@ You are loading **reimagine-it**, one Agent Skill. Progressive disclosure. Do no
 
 1. This file only.
 2. Install **one** folder: `skills/reimagine-it/` (directory name must stay `reimagine-it`).
-3. Read `skills/reimagine-it/SKILL.md` in full when the user says `/reimagine-it`, "reimagine it", "reinvent this", "reimagine this page", or points at **HTML** and asks to redesign it.
+3. Read `skills/reimagine-it/SKILL.md` in full when the user says `/reimagine-it`, "reimagine it", "reinvent this", "reimagine this page", or points at **HTML** and asks to redesign it. **Run `npx reimagine-it`; do not hand-author the page.**
 4. Load `references/notes.md` and `references/forms.md` when the skill says to.
-5. Load `references/webpage-craft.md` for HTML output. Packs in `references/forms/` for pdf / document / slides are **host-conversion playbooks**, not CLI features — use them only if the user asked and the toolchain exists.
+5. Load `references/webpage-craft.md` for HTML output. Packs in `references/forms/` for pdf / document / slides are **host-conversion playbooks**, not CLI features — use them only if the user asked and the toolchain exists. Do not present those packs as engine tokens.
 6. Load `references/domains/<domain>.md` and/or `references/modifiers/<name>.md` if the user gave those tokens.
 7. Load `references/locks/<name>.md` if the user passed `--ref <name>`.
 8. Load `examples.md` if the form is still unclear.

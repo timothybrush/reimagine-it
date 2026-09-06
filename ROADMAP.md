@@ -48,8 +48,8 @@ the live plan: what is open, ordered by leverage per hour.
 | 3.1 | Roundup submissions + a 60-second cut of the walkthrough for YouTube/reels | 1 d | Open (outreach) |
 | 3.2 | Community submission pipeline — `examples/community/TEMPLATE/` + a validation script; the clinic already proves the lane | 4 h | **Shipped** |
 | 3.3 | Good-first-issue labels for new domain packs; a "show your gold" Discussions category | 1 h | Open (needs repo settings) |
-| 3.4 | Design Health published to the GitHub Actions marketplace (it already runs on this repo) | 1 d | Open |
-| 3.5 | PR bot — comments the content-derived palette when a PR touches HTML | 1 d | Open |
+| 3.4 | Design Health published to the GitHub Actions marketplace (it already runs on this repo) | 1 d | **Shipped** (`action.yml` on tagged releases; also [design-health-action](https://github.com/Kayforkind/design-health-action)) |
+| 3.5 | PR bot — comments the content-derived palette when a PR touches HTML | 1 d | **Shipped** (`.github/workflows/content-signals.yml`) |
 
 ## Phase 4 — Moat (quarter)
 

@@ -1473,9 +1473,16 @@ function generate(opts) {
       'c.addEventListener("keydown",function(e){if(e.key==="ArrowLeft"){vy=-.03}else if(e.key==="ArrowRight"){vy=.03}else if(e.key==="ArrowUp"){vx=-.03}else if(e.key==="ArrowDown"){vx=.03}else{return}e.preventDefault();status.textContent="Keyboard orbit adjusted";draw()});' +
       'function tick(){t+=reduced?0:.016;if(!drag){ry+=reduced?0:vy;rx+=reduced?0:vx;vx*=.94;vy*=.94;if(!reduced&&Math.abs(vy)<.0016)vy=.0016;rx=Math.max(-1.1,Math.min(1.1,rx))}draw();window.requestAnimationFrame(tick)}window.addEventListener("resize",resize);resize();tick()' +
       '})()';
-    var css = 'body{font-family:' + sans + ';background:var(--g);color:var(--i);display:flex;flex-direction:column;min-height:100svh}#orbit-view{flex:1;min-height:260px;position:relative;cursor:grab;background:radial-gradient(ellipse 60% 50% at 50% 30%,color-mix(in srgb,var(--a) 7%,transparent),transparent 70%)}canvas{display:block;width:100%;height:100%;min-height:260px;touch-action:none;cursor:grab}canvas:active{cursor:grabbing}.orbit-note{position:absolute;left:24px;top:22px;font:10px ' + mono + ';letter-spacing:.12em;text-transform:uppercase;color:var(--m);pointer-events:none}.orbit-bar{display:flex;justify-content:space-between;gap:18px;align-items:baseline;flex-wrap:wrap;padding:18px 24px;border-top:1px solid rgba(255,255,255,.14)}.orbit-bar h1{font:400 clamp(20px,3.4vw,32px)/1.1 ' + serif + ';color:var(--a);letter-spacing:-.02em}.orbit-bar p{font:11px ' + mono + ';color:var(--m)}.orbit-status{position:absolute;left:-9999px}.orbit-facts{display:flex;gap:8px;flex-wrap:wrap}.orbit-facts span{font:10px ' + mono + ';color:var(--m);border:1px solid var(--m);padding:5px 8px;border-radius:999px}@media(max-width:520px){.orbit-bar{display:block}.orbit-bar p{margin-top:8px}}';
+    var css = 'body{font-family:' + sans + ';background:var(--g);color:var(--i);display:flex;flex-direction:column;min-height:100svh}#orbit-view{flex:1;min-height:260px;position:relative;cursor:grab;background:radial-gradient(ellipse 60% 50% at 50% 30%,color-mix(in srgb,var(--a) 7%,transparent),transparent 70%)}canvas{display:block;width:100%;height:100%;min-height:260px;touch-action:none;cursor:grab}canvas:active{cursor:grabbing}.orbit-note{position:absolute;left:24px;top:22px;font:10px ' + mono + ';letter-spacing:.12em;text-transform:uppercase;color:var(--m);pointer-events:none}.orbit-bar{display:flex;justify-content:space-between;gap:18px;align-items:baseline;flex-wrap:wrap;padding:18px 24px;border-top:1px solid rgba(255,255,255,.14)}.orbit-bar h1{font:400 clamp(20px,3.4vw,32px)/1.1 ' + serif + ';color:var(--a);letter-spacing:-.02em}.orbit-bar p{font:11px ' + mono + ';color:var(--m)}.orbit-status{position:absolute;left:-9999px}.orbit-facts{display:flex;gap:8px;flex-wrap:wrap}.orbit-facts span{font:10px ' + mono + ';color:var(--m);border:1px solid var(--m);padding:5px 8px;border-radius:999px}.orbit-hud{display:grid;grid-template-columns:auto minmax(120px,180px) 1fr 1fr;gap:18px;align-items:center;padding:16px 24px;border-top:1px solid rgba(255,255,255,.14);background:var(--s)}.orbit-hud .iso-prism{width:120px;height:auto}.orbit-hud .glyph-row{justify-content:flex-start}@media(max-width:720px){.orbit-hud{grid-template-columns:1fr}.orbit-bar{display:block}.orbit-bar p{margin-top:8px}}@media(max-width:520px){.orbit-bar{display:block}.orbit-bar p{margin-top:8px}}' +
+      artCss;
     var orbitFacts = facts.slice(0, 10).map(function(f) { return f.value; }).concat(anchors).filter(function(value, index, all) { return all.indexOf(value) === index; }).slice(0, 24);
-    var body = '<main id="orbit-view"><canvas id="orbit-canvas" tabindex="0" role="img" aria-label="Interactive content-derived 3D view of ' + esc(content.title) + '"></canvas><span class="orbit-note">drag or use arrow keys</span><span id="orbit-status" class="orbit-status" aria-live="polite">Interactive view ready</span></main><footer class="orbit-bar"><div><h1>' + esc(content.title) + '</h1><div class="orbit-facts">' + orbitFacts.map(function(fact) { return '<span>' + esc(fact) + '</span>'; }).join('') + '</div></div><p>offline canvas · no external assets</p></footer>';
+    var hasNumeric = facts.some(function(f) { return firstNumericValue([f.value]) > 0; });
+    var hud = '<aside class="orbit-hud" aria-label="Source marks in the gutter">' +
+      glyphTiles(anchors, 5, 36) +
+      isoPrism(content.title, 28) +
+      (hasNumeric ? donutChart(facts) + miniBars(facts, 4) : '') +
+      '</aside>';
+    var body = '<main id="orbit-view"><canvas id="orbit-canvas" tabindex="0" role="img" aria-label="Interactive content-derived 3D view of ' + esc(content.title) + '"></canvas><span class="orbit-note">drag or use arrow keys</span><span id="orbit-status" class="orbit-status" aria-live="polite">Interactive view ready</span></main>' + hud + '<footer class="orbit-bar"><div><h1>' + esc(content.title) + '</h1><div class="orbit-facts">' + orbitFacts.map(function(fact) { return '<span>' + esc(fact) + '</span>'; }).join('') + '</div></div><p>offline canvas · no external assets</p></footer>';
     return page(content.title + ' — 3D', css, body, script);
   }
 
@@ -1980,7 +1987,7 @@ function subjectLane(content) {
   if (/festival|set times?|after-hours|\bstages?\b.*tickets?|tickets?.*\bstages?\b/.test(text)) return 'festival';
   if (/skate|skateboard|\bdecks?\b|\briders?\b/.test(text)) return 'skate';
   if (profile === 'restaurant' || profile === 'food' || /juice|menu|catering|\bpours?\b/.test(text)) return 'food';
-  if (/streetwear|street wear|\bdrop\b|lookbook|oversized|cargo/.test(text)) return 'fashion';
+  if (/streetwear|street wear|lookbook|oversized|cargo shorts|cargo pants|drop collection|\bthe drop\b/.test(text)) return 'fashion';
   if (/architecture|living building|residences?|sky gardens?|leed|cladding/.test(text)) return 'architecture';
   if (profile === 'saas' || profile === 'tech' || /observability|telemetry|uptime|incident|collector/.test(text)) return 'ops';
   if (/compare|timeline|history|statistics|\bdata\b|report|survey/.test(text) && facts >= 2) return 'data';
@@ -2025,9 +2032,14 @@ function scoreToken(token, content) {
   if (token === 'showcase') score += (/demo|showcase|motion|catalog|capability|feature|lab/.test(text) ? 12 : 0) + (content.anchors || []).length * 2;
   if (token === 'showcase' && (content.anchors || []).length < 4) score -= 8;
   // Photoshoot/editorial vocabulary earns the lookbook. Deliberately narrow:
-  // "shots" alone matches "flu shots" (a real clinic-bulletin false positive
-  // the reproduction guard caught), so it must ride with photo vocabulary.
-  if (token === 'lookbook') score += (/\bphotoshoots?\b|photo shoots?|\blookbook\b|\brunway\b|editorial spread|\boutfits?\b|\bcollection\b/.test(text) ? 20 : 0) + items;
+  // "shots" / "collection" / a long list of items are not enough — "flu shots"
+  // and a civic "data collection" were real false positives.
+  var lookbookVocab = /\bphotoshoots?\b|photo[- ]shoots?|\blookbook\b|\brunway\b|editorial spread|\boutfits?\b/.test(text)
+    || (/\bcollection\b/.test(text) && /fashion|streetwear|lookbook|runway|outfit|photoshoot|capsule/.test(text));
+  if (token === 'lookbook') {
+    if (lookbookVocab) score += 20 + items;
+    else score -= 24;
+  }
   if (token === 'lookbook' && (content.anchors || []).length < 3) score -= 10;
   // Living-system language earns the particle field. "Community" alone is
   // too common in civic copy to mean a living constellation.
