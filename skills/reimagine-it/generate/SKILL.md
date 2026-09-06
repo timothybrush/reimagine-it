@@ -4,8 +4,9 @@ description: >-
   Generate one Content-Derived Design direction from an HTML source, or let
   Auto choose the strongest direction. Use when the user says /reimagine-it
   generate, "redesign this page", "make it a landing page", "turn this into
-  an infographic", names a token (webpage, infographic, svg, 3js, simulation,
-  artistic, cinematic, dashboard, photography, landing, lookbook, particles),
+  an infographic", names a token (all 17: webpage, infographic, svg, 3js,
+  simulation, artistic, cinematic, dashboard, photography, landing, editorial,
+  gradient, showcase, motion, glass, lookbook, particles),
   or wants a
   content-aware redesign instead of a mood board. CLI: npx reimagine-it --auto
   -i page.html -o out.html. Part of the reimagine-it Content-Derived Design suite.

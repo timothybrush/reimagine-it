@@ -1,146 +1,146 @@
 {
   "mode": "auto",
-  "token": "landing",
-  "seed": 995488420,
-  "score": 246,
-  "rationale": "The source has an outward-facing action or product-like structure. Evidence: 5 anchors, 6 measurable facts.",
+  "token": "simulation",
+  "seed": 42988806,
+  "score": 196,
+  "rationale": "The source has a sequence or dated progression that can be scrubbed. Evidence: 5 anchors, 10 measurable facts.",
   "candidates": [
     {
+      "token": "simulation",
+      "seed": 42988806,
+      "fit": 30,
+      "quality": 136,
+      "total": 196,
+      "checks": [
+        {
+          "name": "standalone HTML",
+          "passed": true
+        },
+        {
+          "name": "title preserved",
+          "passed": true
+        },
+        {
+          "name": "source anchors retained",
+          "passed": true
+        },
+        {
+          "name": "focus-visible",
+          "passed": true
+        },
+        {
+          "name": "reduced motion",
+          "passed": true
+        },
+        {
+          "name": "selection styling",
+          "passed": true
+        },
+        {
+          "name": "no placeholder copy",
+          "passed": true
+        },
+        {
+          "name": "no external asset fetch",
+          "passed": true
+        },
+        {
+          "name": "type scale present",
+          "passed": true
+        },
+        {
+          "name": "art direction present",
+          "passed": true
+        },
+        {
+          "name": "motion system present",
+          "passed": true
+        },
+        {
+          "name": "palette constrained",
+          "passed": true
+        },
+        {
+          "name": "source fidelity ≥ 60%",
+          "passed": true
+        },
+        {
+          "name": "semantic landmarks",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "token": "cinematic",
+      "seed": -1625709508,
+      "fit": 18,
+      "quality": 136,
+      "total": 172,
+      "checks": [
+        {
+          "name": "standalone HTML",
+          "passed": true
+        },
+        {
+          "name": "title preserved",
+          "passed": true
+        },
+        {
+          "name": "source anchors retained",
+          "passed": true
+        },
+        {
+          "name": "focus-visible",
+          "passed": true
+        },
+        {
+          "name": "reduced motion",
+          "passed": true
+        },
+        {
+          "name": "selection styling",
+          "passed": true
+        },
+        {
+          "name": "no placeholder copy",
+          "passed": true
+        },
+        {
+          "name": "no external asset fetch",
+          "passed": true
+        },
+        {
+          "name": "type scale present",
+          "passed": true
+        },
+        {
+          "name": "art direction present",
+          "passed": true
+        },
+        {
+          "name": "motion system present",
+          "passed": true
+        },
+        {
+          "name": "palette constrained",
+          "passed": true
+        },
+        {
+          "name": "source fidelity ≥ 60%",
+          "passed": true
+        },
+        {
+          "name": "semantic landmarks",
+          "passed": true
+        }
+      ]
+    },
+    {
       "token": "landing",
-      "seed": 995488420,
-      "fit": 55,
+      "seed": 995496251,
+      "fit": 18,
       "quality": 136,
-      "total": 246,
-      "checks": [
-        {
-          "name": "standalone HTML",
-          "passed": true
-        },
-        {
-          "name": "title preserved",
-          "passed": true
-        },
-        {
-          "name": "source anchors retained",
-          "passed": true
-        },
-        {
-          "name": "focus-visible",
-          "passed": true
-        },
-        {
-          "name": "reduced motion",
-          "passed": true
-        },
-        {
-          "name": "selection styling",
-          "passed": true
-        },
-        {
-          "name": "no placeholder copy",
-          "passed": true
-        },
-        {
-          "name": "no external asset fetch",
-          "passed": true
-        },
-        {
-          "name": "type scale present",
-          "passed": true
-        },
-        {
-          "name": "art direction present",
-          "passed": true
-        },
-        {
-          "name": "motion system present",
-          "passed": true
-        },
-        {
-          "name": "palette constrained",
-          "passed": true
-        },
-        {
-          "name": "source fidelity ≥ 60%",
-          "passed": true
-        },
-        {
-          "name": "semantic landmarks",
-          "passed": true
-        }
-      ]
-    },
-    {
-      "token": "editorial",
-      "seed": -522448363,
-      "fit": 26,
-      "quality": 136,
-      "total": 188,
-      "checks": [
-        {
-          "name": "standalone HTML",
-          "passed": true
-        },
-        {
-          "name": "title preserved",
-          "passed": true
-        },
-        {
-          "name": "source anchors retained",
-          "passed": true
-        },
-        {
-          "name": "focus-visible",
-          "passed": true
-        },
-        {
-          "name": "reduced motion",
-          "passed": true
-        },
-        {
-          "name": "selection styling",
-          "passed": true
-        },
-        {
-          "name": "no placeholder copy",
-          "passed": true
-        },
-        {
-          "name": "no external asset fetch",
-          "passed": true
-        },
-        {
-          "name": "type scale present",
-          "passed": true
-        },
-        {
-          "name": "art direction present",
-          "passed": true
-        },
-        {
-          "name": "motion system present",
-          "passed": true
-        },
-        {
-          "name": "palette constrained",
-          "passed": true
-        },
-        {
-          "name": "source fidelity ≥ 60%",
-          "passed": true
-        },
-        {
-          "name": "semantic landmarks",
-          "passed": true
-        }
-      ]
-    },
-    {
-      "token": "photography",
-      "seed": 376654782,
-      "fit": 20,
-      "quality": 136,
-      "total": 176,
+      "total": 172,
       "checks": [
         {
           "name": "standalone HTML",
@@ -202,115 +202,122 @@
     }
   ],
   "anchors": [
-    "Maracuy",
-    "Tropical Juice Bar",
-    "Pressed",
-    "Mango Blaze",
-    "Lagoon Cooler"
+    "Smithsonian",
+    "Apollo",
+    "Command Module Columbia",
+    "Columbia",
+    "Neil Armstrong"
   ],
   "facts": {
-    "headings": 5,
-    "paragraphs": 4,
-    "items": 3,
-    "dates": 1,
+    "headings": 4,
+    "paragraphs": 3,
+    "items": 6,
+    "dates": 5,
     "numbers": 5,
     "links": 1
   },
-  "source": "examples/end-users/maracuya/source.html",
-  "artifact": "D:\\FreeBuff\\GoalDigger\\reimagine-it\\examples\\end-users\\maracuya\\auto.html",
+  "source": "examples/public-sources/smithsonian-apollo11/source.html",
+  "artifact": "D:\\FreeBuff\\GoalDigger\\reimagine-it\\examples\\public-sources\\smithsonian-apollo11\\auto.html",
   "fidelity": {
-    "preserved": 19,
-    "detected": 19,
+    "preserved": 21,
+    "detected": 21,
     "percentage": 100,
     "checks": {
       "title": [
         {
-          "value": "Maracuyá — Tropical Juice Bar",
+          "value": "Smithsonian — Apollo 11 Command Module Columbia",
           "preserved": true
         }
       ],
       "headings": [
         {
-          "value": "Maracuyá",
+          "value": "Command Module Columbia",
           "preserved": true
         },
         {
-          "value": "The menu",
+          "value": "Object facts",
           "preserved": true
         },
         {
-          "value": "Hours",
+          "value": "Where to see it",
           "preserved": true
         },
         {
-          "value": "Locations",
-          "preserved": true
-        },
-        {
-          "value": "Catering",
+          "value": "Plan a visit",
           "preserved": true
         }
       ],
       "dates": [
         {
-          "value": "December 25, 2026",
+          "value": "July 24, 1969",
+          "preserved": true
+        },
+        {
+          "value": "1961",
+          "preserved": true
+        },
+        {
+          "value": "July 16, 1969",
+          "preserved": true
+        },
+        {
+          "value": "2019",
+          "preserved": true
+        },
+        {
+          "value": "2022",
           "preserved": true
         }
       ],
       "numbers": [
         {
-          "value": "6 dollars",
+          "value": "11,700",
           "preserved": true
         },
         {
-          "value": "5 dollars",
+          "value": "5,300",
           "preserved": true
         },
         {
-          "value": "7 dollars",
+          "value": "8 days",
           "preserved": true
         },
         {
-          "value": "16 oz",
+          "value": "3 hours",
           "preserved": true
         },
         {
-          "value": "1,200",
+          "value": "50 states",
           "preserved": true
         }
       ],
-      "emails": [
-        {
-          "value": "hola@maracuya.bar",
-          "preserved": true
-        }
-      ],
+      "emails": [],
       "anchors": [
         {
-          "value": "Maracuy",
+          "value": "Smithsonian",
           "preserved": true
         },
         {
-          "value": "Tropical Juice Bar",
+          "value": "Apollo",
           "preserved": true
         },
         {
-          "value": "Pressed",
+          "value": "Command Module Columbia",
           "preserved": true
         },
         {
-          "value": "Mango Blaze",
+          "value": "Columbia",
           "preserved": true
         },
         {
-          "value": "Lagoon Cooler",
+          "value": "Neil Armstrong",
           "preserved": true
         }
       ],
       "links": [
         {
-          "value": "mailto:hola@maracuya.bar",
-          "label": "hola@maracuya.bar",
+          "value": "https://airandspace.si.edu",
+          "label": "airandspace.si.edu",
           "preserved": true
         }
       ]

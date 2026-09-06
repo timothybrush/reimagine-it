@@ -1,16 +1,81 @@
 {
   "mode": "auto",
-  "token": "landing",
-  "seed": 995488420,
-  "score": 246,
-  "rationale": "The source has an outward-facing action or product-like structure. Evidence: 5 anchors, 6 measurable facts.",
+  "token": "simulation",
+  "seed": 42988806,
+  "score": 196,
+  "rationale": "The source has a sequence or dated progression that can be scrubbed. Evidence: 5 anchors, 5 measurable facts.",
   "candidates": [
     {
-      "token": "landing",
-      "seed": 995488420,
-      "fit": 55,
+      "token": "simulation",
+      "seed": 42988806,
+      "fit": 30,
       "quality": 136,
-      "total": 246,
+      "total": 196,
+      "checks": [
+        {
+          "name": "standalone HTML",
+          "passed": true
+        },
+        {
+          "name": "title preserved",
+          "passed": true
+        },
+        {
+          "name": "source anchors retained",
+          "passed": true
+        },
+        {
+          "name": "focus-visible",
+          "passed": true
+        },
+        {
+          "name": "reduced motion",
+          "passed": true
+        },
+        {
+          "name": "selection styling",
+          "passed": true
+        },
+        {
+          "name": "no placeholder copy",
+          "passed": true
+        },
+        {
+          "name": "no external asset fetch",
+          "passed": true
+        },
+        {
+          "name": "type scale present",
+          "passed": true
+        },
+        {
+          "name": "art direction present",
+          "passed": true
+        },
+        {
+          "name": "motion system present",
+          "passed": true
+        },
+        {
+          "name": "palette constrained",
+          "passed": true
+        },
+        {
+          "name": "source fidelity ≥ 60%",
+          "passed": true
+        },
+        {
+          "name": "semantic landmarks",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "token": "landing",
+      "seed": 995496251,
+      "fit": 18,
+      "quality": 136,
+      "total": 172,
       "checks": [
         {
           "name": "standalone HTML",
@@ -72,75 +137,10 @@
     },
     {
       "token": "editorial",
-      "seed": -522448363,
-      "fit": 26,
+      "seed": -522440532,
+      "fit": 15,
       "quality": 136,
-      "total": 188,
-      "checks": [
-        {
-          "name": "standalone HTML",
-          "passed": true
-        },
-        {
-          "name": "title preserved",
-          "passed": true
-        },
-        {
-          "name": "source anchors retained",
-          "passed": true
-        },
-        {
-          "name": "focus-visible",
-          "passed": true
-        },
-        {
-          "name": "reduced motion",
-          "passed": true
-        },
-        {
-          "name": "selection styling",
-          "passed": true
-        },
-        {
-          "name": "no placeholder copy",
-          "passed": true
-        },
-        {
-          "name": "no external asset fetch",
-          "passed": true
-        },
-        {
-          "name": "type scale present",
-          "passed": true
-        },
-        {
-          "name": "art direction present",
-          "passed": true
-        },
-        {
-          "name": "motion system present",
-          "passed": true
-        },
-        {
-          "name": "palette constrained",
-          "passed": true
-        },
-        {
-          "name": "source fidelity ≥ 60%",
-          "passed": true
-        },
-        {
-          "name": "semantic landmarks",
-          "passed": true
-        }
-      ]
-    },
-    {
-      "token": "photography",
-      "seed": 376654782,
-      "fit": 20,
-      "quality": 136,
-      "total": 176,
+      "total": 166,
       "checks": [
         {
           "name": "standalone HTML",
@@ -202,115 +202,106 @@
     }
   ],
   "anchors": [
-    "Maracuy",
-    "Tropical Juice Bar",
-    "Pressed",
-    "Mango Blaze",
-    "Lagoon Cooler"
+    "Federal Register",
+    "Agency Freedom",
+    "Information Act Regulations",
+    "Freedom",
+    "Final Rule Each"
   ],
   "facts": {
-    "headings": 5,
-    "paragraphs": 4,
+    "headings": 4,
+    "paragraphs": 3,
     "items": 3,
-    "dates": 1,
-    "numbers": 5,
+    "dates": 5,
+    "numbers": 0,
     "links": 1
   },
-  "source": "examples/end-users/maracuya/source.html",
-  "artifact": "D:\\FreeBuff\\GoalDigger\\reimagine-it\\examples\\end-users\\maracuya\\auto.html",
+  "source": "examples/public-sources/federalregister-foia/source.html",
+  "artifact": "D:\\FreeBuff\\GoalDigger\\reimagine-it\\examples\\public-sources\\federalregister-foia\\auto.html",
   "fidelity": {
-    "preserved": 19,
-    "detected": 19,
+    "preserved": 17,
+    "detected": 17,
     "percentage": 100,
     "checks": {
       "title": [
         {
-          "value": "Maracuyá — Tropical Juice Bar",
+          "value": "Federal Register — Agency Freedom of Information Act Regulations",
           "preserved": true
         }
       ],
       "headings": [
         {
-          "value": "Maracuyá",
+          "value": "Freedom of Information Act Regulations; Final Rule",
           "preserved": true
         },
         {
-          "value": "The menu",
+          "value": "Dates and comments",
           "preserved": true
         },
         {
-          "value": "Hours",
+          "value": "Procedural requirements",
           "preserved": true
         },
         {
-          "value": "Locations",
-          "preserved": true
-        },
-        {
-          "value": "Catering",
+          "value": "How to respond",
           "preserved": true
         }
       ],
       "dates": [
         {
-          "value": "December 25, 2026",
+          "value": "2016",
+          "preserved": true
+        },
+        {
+          "value": "June 22, 2026",
+          "preserved": true
+        },
+        {
+          "value": "August 1, 2026",
+          "preserved": true
+        },
+        {
+          "value": "July 7, 2026",
+          "preserved": true
+        },
+        {
+          "value": "July 2, 2026",
           "preserved": true
         }
       ],
-      "numbers": [
-        {
-          "value": "6 dollars",
-          "preserved": true
-        },
-        {
-          "value": "5 dollars",
-          "preserved": true
-        },
-        {
-          "value": "7 dollars",
-          "preserved": true
-        },
-        {
-          "value": "16 oz",
-          "preserved": true
-        },
-        {
-          "value": "1,200",
-          "preserved": true
-        }
-      ],
+      "numbers": [],
       "emails": [
         {
-          "value": "hola@maracuya.bar",
+          "value": "doi_foia@doi.example",
           "preserved": true
         }
       ],
       "anchors": [
         {
-          "value": "Maracuy",
+          "value": "Federal Register",
           "preserved": true
         },
         {
-          "value": "Tropical Juice Bar",
+          "value": "Agency Freedom",
           "preserved": true
         },
         {
-          "value": "Pressed",
+          "value": "Information Act Regulations",
           "preserved": true
         },
         {
-          "value": "Mango Blaze",
+          "value": "Freedom",
           "preserved": true
         },
         {
-          "value": "Lagoon Cooler",
+          "value": "Final Rule Each",
           "preserved": true
         }
       ],
       "links": [
         {
-          "value": "mailto:hola@maracuya.bar",
-          "label": "hola@maracuya.bar",
+          "value": "https://www.regulations.gov",
+          "label": "regulations.gov",
           "preserved": true
         }
       ]

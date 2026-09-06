@@ -72,7 +72,7 @@ Real sources, real CLI output — nine committed journeys. The seven launch jour
 
 <p align="center"><sub>Auto desktops from the committed engine. Before/after composites and two alternatives live in each <a href="examples/end-users/">bundle</a>.</sub></p>
 
-**Proven beyond the showcase** — [examples/public-sources/](examples/public-sources/) redesigns **real public-domain government pages** (National Park Service, NASA, NOAA/NWS) with no declared palette for the engine to lean on: Artemis II → `3js` orbit (100%), hurricane outlook → `landing` (100%), Yellowstone bulletin → `editorial` (84%). Community proofs in [examples/community/](examples/community/) cover jobs the journeys don't — a clinic bulletin → `infographic`, a fashion campaign → `lookbook`. Every artifact regenerates byte-identically in CI.
+**Proven beyond the showcase** — [examples/public-sources/](examples/public-sources/) redesigns **six real public-domain pages** (National Park Service, NASA, NOAA/NWS, Census Bureau, Federal Register, Smithsonian) with no declared palette for the engine to lean on: Artemis II → `3js` orbit (100%), hurricane outlook → `landing` (100%), Yellowstone bulletin → `editorial` (84%), Census income brief → `infographic` (21/21 facts), FOIA rule → `simulation`, Apollo 11 → `simulation`. Community proofs in [examples/community/](examples/community/) cover jobs the journeys don't — a clinic bulletin → `infographic`, a fashion campaign → `lookbook`. Every artifact regenerates byte-identically in CI.
 
 **One command, three furnished designs** — point `/reimagine-it` at a building page and it ships an orbitable 3D object, a magazine feature, and a living SVG diagram from the same source: `npx reimagine-it --auto -i meridian.html`. [See the suite →](https://kayforkind.github.io/reimagine-it/#suite)
 
@@ -248,7 +248,7 @@ npx skills add Kayforkind/reimagine-it
 
 Then `/reimagine-it` in Cursor, Codex, Claude Code, Copilot, Gemini CLI, Windsurf, or Factory Droid. The skill must call the CLI; it must not hand-author HTML.
 
-The [skills.sh listing](https://www.skills.sh/kayforkind/reimagine-it) counts those `npx skills add` installs. It is not GitHub stars. A low badge means few catalog installs, not a missing product.
+The [skills.sh listing](https://www.skills.sh/kayforkind/reimagine-it) counts those `npx skills add` installs. It is not GitHub stars. A low badge means few catalog installs, not a missing product. Directory submissions for cursor.directory / ClawHub have paste-ready copy in [docs/LISTINGS.md](docs/LISTINGS.md).
 
 <details>
 <summary>Host plugin wrappers (same skill)</summary>
@@ -361,7 +361,7 @@ Tools:
 
 ## Measured quality
 
-Every direction is benchmarked against the same bar Auto itself applies — standalone HTML, source title and anchors retained, focus-visible, reduced-motion, `::selection`, no placeholder copy, no external asset fetch. All 17 tokens × 4 representative sources score **100/100 usability and full fidelity**, with **96.5% mean class-set difference** between directions on the same source (no two tokens produce the same page; the most-similar pair, webpage+landing, is 76% — two genuinely different products). Structural difference is the meaningful metric: two pages can share a file size while shipping different markup. For transparency, the size-distance figure is **18.6%** and tracked alongside it in [benchmark/BENCHMARK.md](benchmark/BENCHMARK.md) — file size was never a proof of sameness or difference.
+Every direction is benchmarked against the same bar Auto itself applies — standalone HTML, source title and anchors retained, focus-visible, reduced-motion, `::selection`, no placeholder copy, no external asset fetch. All 17 tokens × 4 representative sources score **100/100 usability and full fidelity**, with **96.8% mean class-set difference** between directions on the same source (no two tokens produce the same page; the most-similar pair, webpage+landing, rose from 76% to **91.7%** after landing got its own hero form — orbit map, proof strip, credit wall — closing [#38](https://github.com/Kayforkind/reimagine-it/issues/38)). Structural difference is the meaningful metric: two pages can share a file size while shipping different markup. For transparency, the size-distance figure is **18.6%** and tracked alongside it in [benchmark/BENCHMARK.md](benchmark/BENCHMARK.md) — file size was never a proof of sameness or difference.
 
 | Direction | Fidelity (title kept) | Usability (quality /100) | Content art |
 |---|---|---|---|

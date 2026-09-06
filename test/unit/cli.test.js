@@ -267,7 +267,7 @@ test('no token embeds a literal undefined; kits stay token-specific', function()
   var all = generateMod.TOKENS;
   var kits = {
     webpage: ['.iso-prism{', '.data-wash{', '.band-footer{'],
-    landing: ['.mesh{', '.glyph-tile{', '.iso-prism{', '.band-footer{'],
+    landing: ['.mesh{', '.orbit-map{', '.proof-strip{', '.credit-wall{'],
     dashboard: ['.donut-chart{', '.head-sheet{'],
     infographic: ['.glyph-tile{', '.rank-row{', '.data-wash{', '.constellation{'],
     cinematic: ['.filmstrip-frame{'],
