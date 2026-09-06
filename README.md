@@ -359,7 +359,7 @@ Tools:
 
 ## Measured quality
 
-Every direction is benchmarked against the same bar Auto itself applies — standalone HTML, source title and anchors retained, focus-visible, reduced-motion, `::selection`, no placeholder copy, no external asset fetch. All 17 tokens × 4 representative sources score **100/100 usability and full fidelity**, with **94.6% mean class-set difference** between directions on the same source (no two tokens produce the same page). Structural difference is the meaningful metric: two pages can share a file size while shipping different markup. For transparency, the size-distance figure is **17.2%** and tracked alongside it in [benchmark/BENCHMARK.md](benchmark/BENCHMARK.md) — file size was never a proof of sameness or difference.
+Every direction is benchmarked against the same bar Auto itself applies — standalone HTML, source title and anchors retained, focus-visible, reduced-motion, `::selection`, no placeholder copy, no external asset fetch. All 17 tokens × 4 representative sources score **100/100 usability and full fidelity**, with **96.5% mean class-set difference** between directions on the same source (no two tokens produce the same page; the most-similar pair, webpage+landing, is 76% — two genuinely different products). Structural difference is the meaningful metric: two pages can share a file size while shipping different markup. For transparency, the size-distance figure is **18.6%** and tracked alongside it in [benchmark/BENCHMARK.md](benchmark/BENCHMARK.md) — file size was never a proof of sameness or difference.
 
 | Direction | Fidelity (title kept) | Usability (quality /100) | Content art |
 |---|---|---|---|

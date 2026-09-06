@@ -268,20 +268,20 @@ test('no token embeds a literal undefined; kits stay token-specific', function()
   var kits = {
     webpage: ['.iso-prism{', '.data-wash{', '.band-footer{'],
     landing: ['.mesh{', '.glyph-tile{', '.iso-prism{', '.band-footer{'],
-    dashboard: ['.donut-chart{'],
-    infographic: ['.glyph-tile{', '.donut-chart{', '.data-wash{', '.constellation{'],
-    cinematic: ['.glyph-tile{'],
+    dashboard: ['.donut-chart{', '.head-sheet{'],
+    infographic: ['.glyph-tile{', '.rank-row{', '.data-wash{', '.constellation{'],
+    cinematic: ['.filmstrip-frame{'],
     artistic: ['.glyph-tile{'],
-    photography: ['.glyph-tile{'],
+    photography: ['.plate-card{'],
     svg: ['.donut-chart{'],
     '3js': ['.iso-prism{', '.orbit-rail{'],
     simulation: ['.glyph-tile{'],
     glass: ['.iso-prism{'],
-    editorial: ['.mini-bars{'],
-    motion: ['.glyph-tile{'],
+    editorial: ['.ed-sheet{'],
+    motion: ['.motion-rings{'],
     gradient: ['.glyph-tile{'],
     showcase: ['.glyph-tile{', '.bento{'],
-    lookbook: ['.glyph-tile{'],
+    lookbook: [],
     particles: []
   };
   var fingerprints = {};

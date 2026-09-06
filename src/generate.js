@@ -492,6 +492,32 @@ function generate(opts) {
     '.cta{max-width:1080px;margin:clamp(48px,8vw,88px) auto 0;padding:clamp(36px,6vw,64px) 28px;display:flex;align-items:end;justify-content:space-between;gap:28px;flex-wrap:wrap;border-top:1px solid color-mix(in srgb,var(--i) 14%,transparent)}.cta h2{font:400 clamp(26px,4.6vw,46px)/1.05 ' + serif + ';letter-spacing:-.03em;max-width:16ch;text-wrap:balance}.cta p{font-size:14px;line-height:1.65;opacity:.6;max-width:44ch;margin-top:12px}.cta .action{display:inline-flex;align-items:center;gap:8px;padding:14px 20px;border-radius:999px;background:var(--a);color:var(--g);font-weight:700;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease}.cta .action:hover{transform:translateY(-3px);box-shadow:0 18px 34px -16px var(--a)}';
   var marqueeCss =
     '.band-marquee{overflow:hidden;border-top:1px solid color-mix(in srgb,var(--i) 14%,transparent);border-bottom:1px solid color-mix(in srgb,var(--i) 14%,transparent);padding:14px 0;margin:24px 0 0}.band-marquee-track{display:flex;gap:40px;width:max-content;animation:band-marq 22s linear infinite;font:400 13px ' + serif + ';letter-spacing:.05em;color:var(--m)}.band-marquee-track span{display:inline-flex;align-items:center;gap:40px;white-space:nowrap}.band-marquee-track i{color:var(--a);font-style:normal}@keyframes band-marq{to{transform:translateX(-50%)}}@media(prefers-reduced-motion:reduce){.band-marquee-track{animation:none;flex-wrap:wrap}}';
+  var filmstripCss =
+    '.filmstrip{position:relative;margin-top:44px;padding:22px 0;border-top:1px solid color-mix(in srgb,var(--i) 14%,transparent);border-bottom:1px solid color-mix(in srgb,var(--i) 14%,transparent)}' +
+    '.filmstrip-track{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 2px;scrollbar-width:thin}' +
+    '.filmstrip-frame{flex:0 0 148px;scroll-snap-align:start;border:2px solid color-mix(in srgb,var(--m) 45%,transparent);border-radius:6px;overflow:hidden;background:var(--s)}' +
+    '.filmstrip-frame svg{display:block;width:100%;height:auto}' +
+    '.filmstrip-frame figcaption{font:9px ' + mono + ';letter-spacing:.08em;text-transform:uppercase;color:var(--m);padding:6px 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}' +
+    '.filmstrip-frame:hover{border-color:var(--a)}' +
+    '@media(prefers-reduced-motion:reduce){.filmstrip-track{scroll-behavior:auto}}';
+  var rankCss =
+    '.rank-row{display:grid;grid-template-columns:30px minmax(0,1fr) 132px minmax(72px,auto);gap:14px;align-items:center;padding:11px 0;border-bottom:1px solid color-mix(in srgb,var(--i) 10%,transparent);font-variant-numeric:tabular-nums}' +
+    '.rank-no{font:10px ' + mono + ';color:var(--m)}' +
+    '.rank-label{font:400 15px ' + sans + ';min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}' +
+    '.rank-track{height:10px;border-radius:5px;background:color-mix(in srgb,var(--i) 9%,transparent);overflow:hidden}' +
+    '.rank-track i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,var(--a),' + 'color-mix(in srgb,var(--a) 55%,var(--m)));transform-origin:left;animation:rank-grow .8s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--ri,0)*.09s)}' +
+    '.rank-val{font:600 13px ' + mono + ';color:var(--a);text-align:right}' +
+    '@keyframes rank-grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}' +
+    '@media(max-width:560px){.rank-row{grid-template-columns:24px minmax(0,1fr) 84px}.rank-track{display:none}}';
+  var platesCss =
+    '.plates{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px;margin-top:40px}' +
+    '.plate-card{border-radius:calc(var(--radius) + 4px);overflow:hidden;background:var(--s);border:1px solid color-mix(in srgb,var(--i) 12%,transparent);box-shadow:0 24px 48px -30px rgba(0,0,0,.5);transition:transform .3s ease,box-shadow .3s ease}' +
+    '.plate-card:hover{transform:translateY(-4px);box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}' +
+    '.plate-card svg{display:block;width:100%;height:auto}' +
+    '.plate-card figcaption{display:flex;gap:10px;align-items:baseline;padding:14px 16px;border-top:2px solid color-mix(in srgb,var(--a) 45%,transparent)}' +
+    '.plate-card figcaption span{font:10px ' + mono + ';opacity:.6}' +
+    '.plate-card figcaption strong{font:400 19px ' + serif + ';letter-spacing:-.01em}' +
+    '.plate-card figcaption em{font:10px ' + mono + ';color:var(--a);font-style:normal;margin-left:auto;letter-spacing:.06em}';
   var footerCss =
     '.band-footer{max-width:1080px;margin:0 auto;padding:40px 28px 64px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;border-top:1px solid color-mix(in srgb,var(--i) 14%,transparent)}.band-footer .eyebrow{display:block;font-size:10px}.band-footer strong{font:400 22px ' + serif + ';letter-spacing:-.02em;color:var(--a)}.band-footer ul{display:flex;gap:18px;flex-wrap:wrap;list-style:none}.band-footer a{color:var(--m);text-decoration:none;border-bottom:1px solid transparent}.band-footer a:hover{color:var(--a);border-color:var(--a)}@media(max-width:560px){.band-footer{display:block}.band-footer nav{margin-top:18px}}';
 
@@ -623,6 +649,7 @@ function generate(opts) {
     var css = 'body{font-family:' + sans + ';background:var(--g);color:var(--i)}' +
       '.console{max-width:1080px;margin:0 auto;padding:clamp(28px,6vw,72px) 28px 90px;position:relative;z-index:1}.console::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(720px 360px at 6% -2%,color-mix(in srgb,var(--a) 24%,transparent),transparent 64%)}' +
       '.console-head{display:flex;justify-content:space-between;align-items:end;gap:24px;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:24px;margin-bottom:24px}' +
+      '.head-sheet{width:100%;border-collapse:collapse;margin-top:26px}.head-sheet caption{text-align:left;font:10px ' + mono + ';letter-spacing:.14em;text-transform:uppercase;color:var(--m);padding:8px 0}.head-sheet th,.head-sheet td{font:11px ' + mono + ';letter-spacing:.05em;text-transform:uppercase;text-align:left;padding:7px 14px 7px 0;border-bottom:1px solid rgba(255,255,255,.09);color:var(--m)}.head-sheet td{color:var(--i)}.head-sheet td b{color:var(--a)}' +
       '.console-head h1{font:500 clamp(28px,5vw,54px)/1 ' + serif + ';letter-spacing:-.035em;color:var(--a)}' +
       '.console-head p{display:inline-flex;align-items:center;gap:9px;font:11px ' + mono + ';color:var(--m);text-align:right;max-width:30ch}.console-head p::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--a);box-shadow:0 0 12px var(--a);animation:live-pulse 2.2s ease-in-out infinite}@keyframes live-pulse{0%,100%{opacity:1}50%{opacity:.25}}' +
       '.metrics{container:metrics / inline-size;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}' +
@@ -650,10 +677,15 @@ function generate(opts) {
     var anchorChips = anchors.map(function(anchor) {
       return '<span class="anchor-chip">' + esc(anchor) + '</span>';
     }).join('');
+    var headSheet = anchors.slice(0, 4).map(function(anchor, index) {
+      var fact = facts[index];
+      return '<tr><th scope="row">' + String(index + 1).padStart(2, '0') + '</th><td>' + esc(anchor) + '</td><td>' + (fact && fact.value ? '<b>' + esc(fact.value) + '</b> ' + esc(fact.kind) : 'signal') + '</td></tr>';
+    }).join('');
+    var headTable = '<table class="head-sheet"><caption>Station index — every row from the source</caption><thead><tr><th scope="col">No</th><th scope="col">Anchor</th><th scope="col">Measure</th></tr></thead><tbody>' + headSheet + '</tbody></table>';
     var signalViz = (hasNumericFacts
       ? '<section class="signal-panels" aria-label="Source signal mix"><div class="signal-panel"><span class="metric-kind">Share of source numbers</span>' + donutChart(facts) + '</div><div class="signal-panel"><span class="metric-kind">Source scale</span>' + miniBars(facts, 5) + '</div></section>'
       : '') + '<section class="signal-anchors" aria-label="Source anchors"><span class="metric-kind">Source anchors</span><div class="anchor-row">' + anchorChips + '</div></section>';
-    var body = '<main class="console"><header class="console-head"><div><span class="metric-kind">' + esc(label) + '</span><h1>' + esc(content.title) + '</h1></div><p>Metrics drawn from the source page</p></header><section class="metrics" aria-label="Source metrics">' + cards + '</section>' + signalViz + '<p class="provenance">Every number shown appears in the source; labels mirror how the page names them.</p></main>';
+    var body = '<main class="console"><header class="console-head"><div><span class="metric-kind">' + esc(label) + '</span><h1>' + esc(content.title) + '</h1></div>' + headTable + '</header><section class="metrics" aria-label="Source metrics">' + cards + '</section>' + signalViz + '<p class="provenance">Every number shown appears in the source; labels mirror how the page names them.</p></main>';
     return pageWithPalette(content.title, css, body, dGround, dAccent, dMuted, dSurface, '#e6edf3');
   }
 
@@ -709,7 +741,10 @@ function generate(opts) {
       quote: quoteCss,
       cta: ctaCss,
       marquee: marqueeCss,
-      footer: footerCss
+      footer: footerCss,
+      filmstrip: filmstripCss,
+      rank: rankCss,
+      plates: platesCss
     };
     var out = '';
     for (var i = 0; i < arguments.length; i++) {
@@ -854,9 +889,15 @@ function generate(opts) {
       '.mix .eyebrow{display:block;margin-bottom:20px}' +
       '.poster-ledger{padding-top:42px}.poster-ledger .eyebrow{display:block;margin:18px 0 10px}.poster-ledger ul{list-style:none}.poster-ledger li{font:14px ' + sans + ';padding:8px 0;border-bottom:1px solid ' + border + '}' +
       '@media(max-width:700px){.mix{grid-template-columns:1fr;gap:32px}}' +
-      kitCss('glyphs', 'charts', 'prism', 'wash', 'constellation') + '.poster{position:relative;overflow:hidden}.poster>*{position:relative;z-index:1}';
-    var mix = (facts.some(function(f) { return firstNumericValue([f.value]) > 0; })
-      ? '<section class="mix" aria-label="Source mix"><div><span class="eyebrow">Share of source numbers</span>' + donutChart(facts) + '</div><div><span class="eyebrow">Source scale</span>' + miniBars(facts, 5) + '</div></section>'
+      kitCss('glyphs', 'rank', 'prism', 'wash', 'constellation') + '.poster{position:relative;overflow:hidden}.poster>*{position:relative;z-index:1}';
+    var numericFacts = facts.filter(function(f) { return firstNumericValue([f.value]) > 0; });
+    var maxVal = numericFacts.reduce(function(h, f) { return Math.max(h, firstNumericValue([f.value])); }, 0) || 1;
+    var rankRows = numericFacts.slice(0, 5).map(function(f, index) {
+      var width = Math.max(10, Math.round(firstNumericValue([f.value]) / maxVal * 100));
+      return '<li class="rank-row" style="--ri:' + index + '"><span class="rank-no">' + String(index + 1).padStart(2, '0') + '</span><span class="rank-label">' + esc(f.label) + '</span><span class="rank-track"><i style="width:' + width + '%"></i></span><span class="rank-val">' + esc(f.value) + '</span></li>';
+    }).join('');
+    var mix = (numericFacts.length
+      ? '<section class="mix" aria-label="Source ranking"><span class="eyebrow">Source scale — every row from the source</span><ol>' + rankRows + '</ol></section>'
       : '<section class="mix" aria-label="Source anchors"><div><span class="eyebrow">Anchors in source</span>' + glyphTiles(anchors, 6, 44) + '</div><div class="prism-wrap"><span class="eyebrow">Form</span>' + isoPrism(content.title, 34) + '</div></section>');
     var ledger = '<section class="poster-ledger" aria-label="Source ledger"><span class="eyebrow">Every source heading</span><ul>' +
       anchors.map(function(anchor) { return '<li>' + esc(anchor) + '</li>'; }).join('') + '</ul>' +
@@ -893,30 +934,37 @@ function generate(opts) {
   }
 
   function cinematic() {
+    var fps = 24;
     var chapters = anchors.map(function(anchor, index) {
-      return '<article class="chapter" id="chapter-' + index + '"><span class="chapter-no">' + String(index + 1).padStart(2, '0') + '</span><h2>' + esc(anchor) + '</h2><p>' + esc(sectionParagraphAt(index, anchor)) + '</p></article>';
+      var seconds = 6 + (hashString(anchor + index) % 19);
+      var tc = function(total) { var m = Math.floor(total / 60), s = total % 60; return String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0') + ':' + String((index * 11) % fps).padStart(2, '0'); };
+      return '<article class="chapter" id="chapter-' + index + '"><div class="chapter-frame" aria-hidden="true">' + plateArt(anchor, index, accent, muted, ink) + '</div><div class="chapter-copy"><span class="chapter-tc">' + tc(seconds) + '</span><h2>' + esc(anchor) + '</h2><p>' + esc(sectionParagraphAt(index, anchor)) + '</p></div></article>';
+    }).join('');
+    var frames = anchors.slice(0, 8).map(function(anchor, index) {
+      return '<figure class="filmstrip-frame"><span class="film-art" aria-hidden="true">' + plateArt(anchor, index, accent, muted, ink) + '</span><figcaption>' + esc(anchor) + '</figcaption></figure>';
     }).join('');
     var css = 'body{font-family:' + sans + ';background:var(--g);color:var(--i)}' +
       '.scene{background:var(--g)}.opening{min-height:100svh;display:grid;place-items:center;position:relative;padding:48px 28px;text-align:center;isolation:isolate}.opening::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 55% at 50% 38%,var(--a),transparent 70%);opacity:.18;z-index:-1}.opening::after{content:"";position:absolute;width:1px;height:22vh;bottom:0;left:50%;background:linear-gradient(var(--a),transparent);opacity:.55}.opening-inner{max-width:900px}.eyebrow{font:10px ' + mono + ';letter-spacing:.2em;text-transform:uppercase;color:var(--a)}' +
-      '.opening h1{font:400 clamp(54px,12vw,150px)/.84 ' + serif + ';letter-spacing:-.07em;color:var(--a);margin-top:24px;text-wrap:balance;position:relative;display:inline-block}.opening h1::after{content:"";position:absolute;left:0;bottom:-16px;height:2px;width:0;background:var(--a);animation:title-rule 1s .7s cubic-bezier(.2,.8,.2,1) forwards}@keyframes title-rule{to{width:40%}}.opening p{font-size:15px;line-height:1.6;opacity:.55;margin:26px auto 0;max-width:48ch}.continue{display:inline-block;margin-top:54px;font:10px ' + mono + ';letter-spacing:.16em;text-transform:uppercase;color:var(--m);text-decoration:none}.chapter{min-height:82svh;max-width:760px;margin:0 auto;display:grid;align-content:center;padding:100px 0;position:relative;overflow:hidden;animation:rise both linear;animation-timeline:view();animation-range:entry 10% cover 38%}.chapter::before{content:"";position:absolute;left:28px;top:0;bottom:0;width:1px;background:var(--m);opacity:.25}.chapter-no{position:absolute;top:-12px;right:0;font:700 clamp(64px,14vw,150px)/.8 ' + serif + ';color:var(--a);opacity:.1;letter-spacing:-.04em;user-select:none;pointer-events:none}.chapter h2{font:400 clamp(42px,8vw,92px)/.9 ' + serif + ';letter-spacing:-.055em;color:var(--a);max-width:8ch;margin:20px 0 24px 24px}.chapter p{font-size:18px;line-height:1.75;max-width:54ch;opacity:.7;margin-left:24px}@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}@supports not (animation-timeline:view()){.chapter{animation:none}}' +
-      '.opening-glyphs{position:absolute;inset:0;display:flex;flex-wrap:wrap;gap:30px;padding:9vh 8vw;opacity:.28;pointer-events:none;z-index:0}.opening-glyphs .glyph-tile{width:52px;height:52px}.opening-inner{position:relative;z-index:1}' +
-      kitCss('glyphs', 'stats');
-    var stats = statsBand(facts.length || 4);
-    var body = '<main class="scene"><section class="opening">' + glyphTiles(anchors, 5, 52) + '<div class="opening-inner"><span class="eyebrow">' + esc(label) + '</span><h1>' + esc(content.title) + '</h1><p>' + esc(paragraphAt(0, anchors[0])) + '</p><a class="continue" href="#chapter-0">Enter the source ↓</a></div></section>' + chapters + stats + '</main>';
+      '.opening h1{font:400 clamp(54px,12vw,150px)/.84 ' + serif + ';letter-spacing:-.07em;color:var(--a);margin-top:24px;text-wrap:balance;position:relative;display:inline-block}.opening h1::after{content:"";position:absolute;left:0;bottom:-16px;height:2px;width:0;background:var(--a);animation:title-rule 1s .7s cubic-bezier(.2,.8,.2,1) forwards}@keyframes title-rule{to{width:40%}}.opening p{font-size:15px;line-height:1.6;opacity:.55;margin:26px auto 0;max-width:48ch}.continue{display:inline-block;margin-top:54px;font:10px ' + mono + ';letter-spacing:.16em;text-transform:uppercase;color:var(--m);text-decoration:none}.chapter-frame{border-radius:calc(var(--radius) + 6px);overflow:hidden;box-shadow:0 32px 70px -34px rgba(0,0,0,.65);border:1px solid rgba(255,255,255,.1)}.chapter-frame svg{display:block;width:100%;height:auto}.chapter{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,4fr);gap:clamp(20px,4vw,48px);align-items:center;max-width:1120px;margin:0 auto;padding:clamp(36px,7vw,84px) 28px;animation:rise both linear;animation-timeline:view();animation-range:entry 10% cover 38%}.chapter:nth-of-type(even) .chapter-frame{order:2}.chapter-tc{font:700 11px ' + mono + ';letter-spacing:.14em;color:var(--a);font-variant-numeric:tabular-nums}.chapter h2{font:400 clamp(34px,6.4vw,64px)/.95 ' + serif + ';letter-spacing:-.04em;color:var(--a);margin:12px 0 16px;max-width:14ch}.chapter p{font-size:16px;line-height:1.7;max-width:52ch;opacity:.68}@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}@supports not (animation-timeline:view()){.chapter{animation:none}}@media(max-width:860px){.chapter{grid-template-columns:1fr}.chapter:nth-of-type(even) .chapter-frame{order:0}}' +
+      '.scene-supers{max-width:1120px;margin:0 auto;padding:26px 28px 70px}.scene-supers .eyebrow{display:block;margin-bottom:14px}.super-row{display:flex;flex-wrap:wrap;gap:10px}.super{font:11px ' + mono + ';letter-spacing:.08em;color:var(--m);border:1px solid color-mix(in srgb,var(--m) 34%,transparent);border-radius:999px;padding:8px 14px;font-variant-numeric:tabular-nums}.super b{color:var(--a)}' +
+      kitCss('filmstrip');
+    var stats = '';
+    var filmstrip = anchors.length > 2 ? '<section class="filmstrip" aria-label="Source frames"><div class="filmstrip-track">' + frames + '</div></section>' : '';
+    var caps = '<section class="caps" aria-label="Source scenes in sequence">' + chapters + '</section>';
+    var supers = facts.length ? '<section class="scene-supers" aria-label="Source measures as supers"><span class="eyebrow">Source supers</span><div class="super-row">' + facts.map(function(f) { return '<span class="super"><b>' + esc(f.value) + '</b>' + (f.label ? ' ' + esc(f.label) : '') + '</span>'; }).join('') + '</div></section>' : '';
+    var body = '<main class="scene"><section class="opening"><div class="opening-inner"><span class="eyebrow">' + esc(label) + '</span><h1>' + esc(content.title) + '</h1><p>' + esc(paragraphAt(0, anchors[0])) + '</p><a class="continue" href="#chapter-0">Enter the source ↓</a></div></section>' + filmstrip + caps + supers + stats + '</main>';
     return page(content.title, css, body);
   }
 
   function photography() {
     var plates = anchors.map(function(anchor, index) {
-      var wide = index % 3 === 0 ? 'wide' : '';
       var factValue = facts[index] && facts[index].value ? '<em>' + esc(facts[index].value) + '</em>' : '';
-      return '<figure class="plate ' + wide + '">' + glyphTiles([anchor], 1, 34) + plateArt(anchor, index, accent, muted, ink) + '<figcaption><span>' + String(index + 1).padStart(2, '0') + '</span><strong>' + esc(anchor) + '</strong>' + factValue + '</figcaption></figure>';
+      return '<figure class="plate-card" style="--pi:' + index + '">' + plateArt(anchor, index, accent, muted, ink) + '<figcaption><span>' + String(index + 1).padStart(2, '0') + '</span><strong>' + esc(anchor) + '</strong>' + factValue + '</figcaption></figure>';
     }).join('');
     var css = 'body{font-family:' + sans + ';background:var(--g);color:var(--i)}' +
-      '.folio{max-width:1120px;margin:0 auto;padding:32px 28px 90px}.folio-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;border-bottom:1px solid rgba(255,255,255,.14);padding:18px 0 22px;margin-bottom:18px}.folio-head h1{font:400 clamp(34px,7vw,78px)/.9 ' + serif + ';letter-spacing:-.05em;max-width:9ch;color:var(--a)}.folio-head p{font:10px ' + mono + ';color:var(--m);text-transform:uppercase;letter-spacing:.15em}.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.plate{position:relative;min-height:300px;overflow:hidden;border-radius:calc(var(--radius) / 2);background:var(--s);container-type:inline-size;animation:plate-in linear both;animation-timeline:view();animation-range:entry 4% cover 22%}.plate.wide{grid-column:span 2;min-height:420px}.gallery .plate:nth-child(3n+2){min-height:380px}.gallery .plate:nth-child(3n){min-height:340px}.plate svg{position:absolute;inset:0;width:100%;height:100%;transition:transform .35s ease}@keyframes plate-in{from{opacity:0;transform:scale(.97) translateY(16px)}to{opacity:1;transform:none}}.plate:hover svg{transform:scale(1.04) rotate(var(--tilt))}.plate figcaption{position:absolute;left:0;right:0;bottom:0;display:flex;gap:12px;align-items:baseline;padding:24px 18px 16px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.8));transform:translateY(0);transition:transform .35s cubic-bezier(.2,.8,.2,1);border-top:2px solid transparent}.plate:hover figcaption{border-top-color:var(--a);transform:translateY(-2px)}.plate figcaption span{font:10px ' + mono + ';opacity:.62}.plate figcaption strong{font:400 22px ' + serif + '}.plate figcaption em{font:10px ' + mono + ';color:var(--a);opacity:.9;letter-spacing:.08em}.plate svg text{font-family:' + svgSans + ';font-size:13px;letter-spacing:.08em;text-transform:uppercase}.plate svg .orbit{transform-origin:50% 50%;animation:orbit 12s linear infinite}@keyframes orbit{to{transform:rotate(360deg)}}@media(max-width:760px){.gallery{grid-template-columns:repeat(2,1fr)}.plate.wide{grid-column:span 2}}@media(max-width:480px){.gallery{grid-template-columns:1fr}.plate,.plate.wide{grid-column:span 1;min-height:300px}}' +
-      '.plate .glyph-row{position:absolute;top:14px;right:14px;z-index:2;opacity:.9;filter:drop-shadow(0 6px 14px rgba(0,0,0,.5))}.plate .glyph-tile{width:34px;height:34px}' +
-      kitCss('glyphs');
-    var body = '<main class="folio"><header class="folio-head"><h1>' + esc(content.title) + '</h1><p>' + anchors.length + ' visual studies</p></header><section class="gallery" aria-label="Source anchor studies">' + plates + '</section></main>';
+      '.folio{max-width:1120px;margin:0 auto;padding:32px 28px 90px}.folio-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;border-bottom:1px solid rgba(255,255,255,.14);padding:18px 0 22px;margin-bottom:18px}.folio-head h1{font:400 clamp(34px,7vw,78px)/.9 ' + serif + ';letter-spacing:-.05em;max-width:9ch;color:var(--a)}.folio-head p{font:10px ' + mono + ';color:var(--m);text-transform:uppercase;letter-spacing:.15em}.plate-card svg text{font-family:' + svgSans + ';font-size:13px;letter-spacing:.08em;text-transform:uppercase}.plate-card svg .orbit{transform-origin:50% 50%;animation:orbit 12s linear infinite}@keyframes orbit{to{transform:rotate(360deg)}}.plate-card{animation:plate-in linear both;animation-timeline:view();animation-range:entry 4% cover 22%}@keyframes plate-in{from{opacity:0;transform:scale(.97) translateY(16px)}to{opacity:1;transform:none}}@supports not (animation-timeline:view()){.plate-card{animation:none}}' +
+      kitCss('plates');
+    var body = '<main class="folio"><header class="folio-head"><h1>' + esc(content.title) + '</h1><p>' + anchors.length + ' plates · monospace-numbered · no overlays</p></header><section class="plates" aria-label="Source anchor studies">' + plates + '</section></main>';
     return page(content.title + ' — folio', css, body);
   }
 
@@ -1018,7 +1066,7 @@ function generate(opts) {
     var looks = anchors.slice(0, 8).map(function(anchor, index) {
       var fact = facts[index];
       var wide = index % 4 === 0 ? 'look-wide' : '';
-      return '<figure class="look ' + wide + ' glow-card" style="--li:' + index + '">' + glyphTiles([anchor], 1, 30) + plateArt(anchor, index, accent, muted, ink) +
+      return '<figure class="look ' + wide + ' glow-card" style="--li:' + index + '">' + plateArt(anchor, index, accent, muted, ink) +
         '<figcaption><span class="look-no">' + String(index + 1).padStart(2, '0') + '</span><strong>' + esc(anchor) + '</strong>' +
         (fact && fact.value ? '<em>' + esc(fact.value) + '</em>' : '') + '</figcaption></figure>';
     }).join('');
@@ -1035,7 +1083,6 @@ function generate(opts) {
       '.look svg{position:absolute;inset:0;width:100%;height:100%;transition:transform .5s var(--ease-out),filter .5s ease}.look:hover svg{transform:scale(1.06);filter:saturate(1.15) contrast(1.04)}' +
       '.look figcaption{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:baseline;gap:12px;padding:22px 16px 14px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.82));transform:translateY(6px);opacity:.92;transition:transform .4s var(--ease-out),opacity .4s ease}.look:hover figcaption{transform:none;opacity:1;border-top:2px solid var(--a)}' +
       '.look-no{font:10px ' + mono + ';letter-spacing:.2em;opacity:.7}.look figcaption strong{font:400 clamp(18px,2.4vw,26px) ' + serif + ';letter-spacing:-.02em}.look figcaption em{font:10px ' + mono + ';font-style:normal;color:var(--a);letter-spacing:.1em;margin-left:auto}' +
-      '.look .glyph-row{position:absolute;top:12px;right:12px;z-index:2;opacity:.9;filter:drop-shadow(0 6px 14px rgba(0,0,0,.5))}.look .glyph-tile{width:30px;height:30px}' +
       '.book-facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:38px;padding-top:26px;border-top:1px solid ' + border + '}.book-facts span{font:11px ' + mono + ';letter-spacing:.06em;color:var(--m);border:1px solid ' + border + ';padding:8px 14px;border-radius:999px;font-variant-numeric:tabular-nums}' +
       '.book-footer{display:flex;justify-content:space-between;gap:16px;margin-top:46px;font:10px ' + mono + ';letter-spacing:.18em;text-transform:uppercase;color:var(--m)}' +
       '@media(max-width:820px){.looks{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.looks{grid-template-columns:1fr}.look-wide{grid-column:span 1}}' + kitCss('glyphs');
@@ -1140,10 +1187,11 @@ function generate(opts) {
       '.ed-data{float:right;width:300px;margin:4px 0 32px 36px;padding:24px;border:1px solid ' + border + ';border-radius:var(--radius);background:color-mix(in srgb,var(--a) 6%,transparent)}' +
       '.ed-data .eyebrow{display:block;margin-bottom:18px}' +
       '@media(max-width:700px){.ed-data{float:none;width:100%;margin:0 0 28px}}' +
-      '@media(max-width:620px){.pull-quote{float:none;width:100%;margin:24px 0}}' + kitCss('glyphs', 'charts');
+      '.ed-sheet{width:100%;border-collapse:collapse;margin-top:6px}.ed-sheet caption{text-align:left;font:10px ' + mono + ';letter-spacing:.14em;text-transform:uppercase;color:var(--m);padding:6px 0}.ed-sheet th,.ed-sheet td{font:12px ' + mono + ';text-align:left;padding:8px 12px 8px 0;border-bottom:1px solid ' + border + ';color:var(--m)}.ed-sheet td{color:var(--i);font-variant-numeric:tabular-nums}.ed-sheet td b{color:var(--a)}' +
+      '@media(max-width:620px){.pull-quote{float:none;width:100%;margin:24px 0}}';
     var dataPull = facts.some(function(f) { return firstNumericValue([f.value]) > 0; })
-      ? '<aside class="ed-data" aria-label="Source measures"><span class="eyebrow">Source measures</span>' + miniBars(facts, 4) + '</aside>'
-      : '<aside class="ed-data" aria-label="Source anchors"><span class="eyebrow">Source anchors</span>' + glyphTiles(anchors, 4, 40) + '</aside>';
+      ? '<aside class="ed-data" aria-label="Source measures"><table class="ed-sheet"><caption>Source measures</caption><tbody>' + facts.filter(function(f) { return firstNumericValue([f.value]) > 0; }).slice(0, 4).map(function(f) { return '<tr><th scope="row">' + esc(f.label) + '</th><td><b>' + esc(f.value) + '</b></td></tr>'; }).join('') + '</tbody></table></aside>'
+      : '<aside class="ed-data" aria-label="Source anchors"><span class="eyebrow">Source anchors</span><ul>' + anchors.slice(0, 4).map(function(anchor) { return '<li>' + esc(anchor) + '</li>'; }).join('') + '</ul></aside>';
     var body = '<main class="magazine"><header class="masthead"><span>Content-Derived Design</span><b>' + esc(content.title) + '</b><span>Vol. 1 · ' + anchors.length + ' sections</span></header><header class="magazine-header"><span class="eyebrow">' + esc(label) + '</span><h1>' + esc(content.title) + '</h1><p class="deck">' + esc(paragraphAt(0, anchors[0])) + '</p></header><article>' + dataPull + '<aside class="pull-quote" aria-label="Source pull quote">' + esc(pullQuoteText) + '</aside><p class="body-text"><span class="drop-cap" aria-hidden="true">' + esc(dropCap) + '</span>' + esc(bodyText) + '</p><p class="body-text">' + esc(bodyPara2) + '</p></article>' + sections + '<footer class="ed-footer"><span>' + anchors.length + ' source anchors</span><span>Content-Derived Design</span></footer></main>';
     return page(content.title + ' — editorial', css, body);
   }
@@ -1168,8 +1216,8 @@ function generate(opts) {
       '.motion-sub{font-size:17px;line-height:1.7;opacity:.58;max-width:44ch;margin-top:22px;animation:slide-up .9s .15s cubic-bezier(.2,.8,.2,1) both}' +
       '.motion-arrow{display:block;margin-top:48px;text-align:center;animation:pulse 2.4s ease-in-out infinite}' +
       '.motion-arrow svg{width:32px;height:32px;stroke:var(--a);stroke-width:1.5;fill:none}' +
-      '.motion-glyphs{position:absolute;inset:0;display:flex;flex-wrap:wrap;gap:36px;padding:8vh 8vw;opacity:.22;pointer-events:none;z-index:0}.motion-glyphs .glyph-tile{width:46px;height:46px}' +
-      kitCss('glyphs') +
+      '.motion-rings{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}.motion-rings i{position:absolute;top:38%;left:56%;width:52vmin;height:52vmin;margin:-26vmin 0 0 -26vmin;border:1px solid color-mix(in srgb,var(--a) 26%,transparent);border-radius:50%;transform:rotate(' + variation.tilt + 'deg) translateZ(0);animation:ring-turn 16s linear infinite;animation-delay:calc(var(--ri,0)*-5s)}.motion-rings i:nth-child(2){width:74vmin;height:74vmin;margin:-37vmin 0 0 -37vmin;opacity:.6}.motion-rings i:nth-child(3){width:98vmin;height:98vmin;margin:-49vmin 0 0 -49vmin;opacity:.32}.motion-rings i::before{content:"";position:absolute;top:-4px;left:50%;width:7px;height:7px;border-radius:50%;background:var(--a);box-shadow:0 0 14px 2px color-mix(in srgb,var(--a) 55%,transparent)}@keyframes ring-turn{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}' +
+      '.motion-ring-labels{position:absolute;top:38%;left:56%;width:0;height:0;z-index:0;pointer-events:none}.motion-ring-labels span{position:absolute;font:9px ' + mono + ';letter-spacing:.16em;text-transform:uppercase;color:var(--m);white-space:nowrap}' +
       '.reveals{position:relative;z-index:2;max-width:820px;margin:0 auto;padding:0 28px 120px}' +
       '.reveal{position:relative;padding:38px 0 38px 48px;border-left:1px solid ' + border + ';animation:reveal-in linear both;animation-timeline:view();animation-range:entry 6% cover 32%}' +
       '.reveal-num{position:absolute;left:0;top:44px;transform:translateX(-50%);width:28px;height:28px;border-radius:50%;background:var(--g);border:2px solid var(--a);display:grid;place-items:center;font:10px ' + mono + ';color:var(--a);transition:transform .25s ease,box-shadow .25s ease}.reveal:hover .reveal-num{transform:translateX(-50%) scale(1.25);box-shadow:0 0 0 6px color-mix(in srgb,var(--a) 18%,transparent)}.reveal::after{content:attr(data-no);position:absolute;right:0;top:10px;font:700 clamp(48px,9vw,104px)/1 ' + serif + ';color:var(--a);opacity:.07;letter-spacing:-.03em;pointer-events:none;user-select:none}' +
@@ -1184,7 +1232,13 @@ function generate(opts) {
       '@supports not (animation-timeline:view()){.reveal{animation:reveal-in-fallback .5s ease both;animation-delay:var(--rd)}}' +
       '@keyframes reveal-in-fallback{from{opacity:0;transform:translateX(-18px)}to{opacity:1;transform:none}}' +
       '@media(max-width:560px){.reveal{padding-left:32px}.reveal-num{width:22px;height:22px}}';
-    var body = '<main class="motion-scene">' + glyphTiles(anchors, 5, 46) + '<header class="motion-header"><span class="eyebrow">' + esc(label) + '</span><h1>' + esc(content.title) + '</h1><p class="motion-sub">' + esc(paragraphAt(0, anchors[0])) + '</p><span class="motion-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg></span></header><section class="reveals" aria-label="Source signals">' + reveals + '</section><footer class="motion-footer">' + anchors.length + ' signals from source · no invented content</footer></main>';
+    var ringLabels = anchors.slice(0, 4).map(function(anchor, index) {
+      var angle = -Math.PI / 2 + index * (Math.PI / 2);
+      var lx = Math.cos(angle) * 30;
+      var ly = Math.sin(angle) * 30;
+      return '<span style="transform:translate(' + lx.toFixed(1) + 'vmin,' + ly.toFixed(1) + 'vmin)">' + esc(anchor) + '</span>';
+    }).join('');
+    var body = '<main class="motion-scene"><div class="motion-rings" aria-hidden="true"><i></i><i></i><i></i></div><div class="motion-ring-labels" aria-label="Source anchors on the orbit">' + ringLabels + '</div><header class="motion-header"><span class="eyebrow">' + esc(label) + '</span><h1>' + esc(content.title) + '</h1><p class="motion-sub">' + esc(paragraphAt(0, anchors[0])) + '</p><span class="motion-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg></span></header><section class="reveals" aria-label="Source signals">' + reveals + '</section><footer class="motion-footer">' + anchors.length + ' signals from source · no invented content</footer></main>';
     return page(content.title + ' — motion', css, body);
   }
 

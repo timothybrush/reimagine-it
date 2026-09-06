@@ -216,8 +216,8 @@
     "numbers": 7,
     "links": 0
   },
-  "source": "examples/end-users/horizon/source.html",
-  "artifact": "D:\\Projects\\reimagine-it\\examples\\end-users\\horizon\\auto.html",
+  "source": "D:\\FreeBuff\\GoalDigger\\reimagine-it\\examples\\end-users\\horizon\\source.html",
+  "artifact": "D:\\FreeBuff\\GoalDigger\\reimagine-it\\examples\\end-users\\horizon\\auto.html",
   "fidelity": {
     "preserved": 20,
     "detected": 20,
