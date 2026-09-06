@@ -4,7 +4,7 @@ All notable changes to reimagine-it.
 
 ---
 
-## Unreleased
+## v2.10.0 (current)
 
 - **Skill is a wrapper, not a second engine.** `/reimagine-it` must run `npx reimagine-it`. Hand-authoring HTML when the CLI can run is a fail.
 - **Lookbook Auto false positive.** Flu-shot / civic list pages no longer earn lookbook from item count or a bare `collection` / `drop` match. Fashion lane requires streetwear/lookbook language, not `\bdrop\b`.
@@ -13,7 +13,7 @@ All notable changes to reimagine-it.
 - **skills.sh** install badge is `npx skills add` telemetry, not GitHub stars.
 - **CodeQL init/analyze stay on the same SHA** (v4.37.9) so Dependabot cannot split them. Scorecard SARIF upload matches.
 
-## v2.9.0 (current)
+## v2.9.0
 
 ### The auditability release — the repo's guarantees are now shown, not just enforced
 
