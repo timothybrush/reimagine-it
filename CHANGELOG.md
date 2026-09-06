@@ -4,7 +4,15 @@ All notable changes to reimagine-it.
 
 ---
 
-## v2.11.0 (current)
+## v2.12.0 (current)
+
+### The last-similarity-floor release
+
+- **Landing's own hero form (#38 closed).** The most-similar pair in the matrix — webpage+landing at 76% class-set difference — is separated by composition, not color swaps: landing now opens with a source-derived **orbit map** (each anchor a node on a concentric ring around the title's initial, facts as orbit values), runs a **proof strip** of verbatim source facts instead of the shared stats band, and closes on a **credit wall** grouping the source's own links, emails, and dates. Measured: webpage+landing **76% → 91.7%**, mean across all 136 pairs **96.5% → 96.8%**.
+- **Public-source proof lane doubles (#39 closed).** Three new real pages join NPS/NASA/NOAA: the Census Bureau income brief P60-282 (nine dollar figures → `infographic`, 21/21), a Federal Register FOIA procedural rule (all dates and citations → `simulation`, 17/17), and the Smithsonian's Apollo 11 command-module page (descriptive copy → `simulation`, 21/21). The reproduction guard now covers **17 artifacts byte-identically**.
+- **Skill listings carry the full roster (#34 code side).** The skills.sh-facing SKILL.md descriptions listed 12 of 17 tokens; both now list all 17. `docs/LISTINGS.md` ships paste-ready copy for cursor.directory / ClawHub submissions and the organic-only install-count stance.
+
+## v2.11.0
 
 ### The proof-breadth release — distinct directions, real-world pages
 
