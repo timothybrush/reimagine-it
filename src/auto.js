@@ -245,7 +245,7 @@ function qualityScore(output, content, options) {
   (output.match(/#[0-9a-f]{6}\b/gi) || []).forEach(function(hex) { distinctHexes[hex.toLowerCase()] = 1; });
   var fidelity = resultApi && resultApi.sourceFidelity ? resultApi.sourceFidelity(content, output).percentage : 100;
   check('type scale present', /clamp\(/.test(output), 6);
-  check('art direction present', /(?:glyph-tile|donut|mini-bars|iso-prism|iso-stack|plate|mesh|data-wash|constellation|dot-grid|cap-card|orbit-canvas|glass-panel|isotype|ranking-row|field-canvas)/.test(output), 8);
+  check('art direction present', /(?:glyph-tile|donut|mini-bars|iso-prism|iso-stack|plate|mesh|data-wash|constellation|dot-grid|cap-card|orbit-canvas|orbit-rail|glass-panel|isotype|ranking-row|field-canvas)/.test(output), 8);
   check('motion system present', keyframes >= 3, 6);
   // Cap sits at the system's own ceiling: 3 source-declared brand colors +
   // the accent tint family reach 15; anything above that is an unbounded palette.

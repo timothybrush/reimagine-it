@@ -4,6 +4,8 @@
 
 The source file is the brief. A bakery cannot come out marine-teal. Seventeen design directions (tokens) exist: webpage, infographic, svg, 3js, simulation, artistic, cinematic, dashboard, photography, landing, editorial, gradient, showcase, motion, glass, lookbook, particles. **Auto** scores every lane against the content and picks the strongest.
 
+Not Keith Mangold’s reimagineit.ai interview SaaS. This is Kayforkind/reimagine-it on npm and GitHub.
+
 ## Install
 
 ```bash

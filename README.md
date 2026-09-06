@@ -218,7 +218,7 @@ The intended outcome is **fresh when requested, consistent when approved** — n
 
 Two doors. The CLI writes the page. The skill tells an agent to run that CLI. Host plugin wrappers are the same skill.
 
-Not Keith Mangold’s [Reimagine It](https://reimagineit.ai) interview SaaS.
+Not Keith Mangold’s [Reimagine It](https://reimagineit.ai) interview SaaS (Product Hunt slug `reimagine-it`). This repo is Kayforkind’s Content-Derived Design CLI — npm package [`reimagine-it`](https://www.npmjs.com/package/reimagine-it), gallery [kayforkind.github.io/reimagine-it](https://kayforkind.github.io/reimagine-it/).
 
 ### 1. CLI (the engine)
 
@@ -245,6 +245,8 @@ npx skills add Kayforkind/reimagine-it
 ```
 
 Then `/reimagine-it` in Cursor, Codex, Claude Code, Copilot, Gemini CLI, Windsurf, or Factory Droid. The skill must call the CLI; it must not hand-author HTML.
+
+The [skills.sh listing](https://www.skills.sh/kayforkind/reimagine-it) counts those `npx skills add` installs. It is not GitHub stars. A low badge means few catalog installs, not a missing product.
 
 <details>
 <summary>Host plugin wrappers (same skill)</summary>
@@ -357,7 +359,7 @@ Tools:
 
 ## Measured quality
 
-Every direction is benchmarked against the same bar Auto itself applies — standalone HTML, source title and anchors retained, focus-visible, reduced-motion, `::selection`, no placeholder copy, no external asset fetch. All 17 tokens × 4 representative sources score **100/100 usability and full fidelity**, with **22.7% mean pairwise output diversity** between directions on the same source (no two tokens produce the same page).
+Every direction is benchmarked against the same bar Auto itself applies — standalone HTML, source title and anchors retained, focus-visible, reduced-motion, `::selection`, no placeholder copy, no external asset fetch. All 17 tokens × 4 representative sources score **100/100 usability and full fidelity**, with **94.6% mean class-set difference** between directions on the same source (no two tokens produce the same page).
 
 | Direction | Fidelity (title kept) | Usability (quality /100) | Content art |
 |---|---|---|---|

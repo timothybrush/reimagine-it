@@ -6,7 +6,7 @@ Canned descriptions ready to copy-paste into each platform.
 
 | Platform | Status | Notes |
 |----------|--------|-------|
-| skills.sh | **Live** | [listed](https://www.skills.sh/kayforkind/reimagine-it) — 3 installs, auto-synced from the repo |
+| skills.sh | **Live** | [listed](https://www.skills.sh/kayforkind/reimagine-it) — install count is `npx skills add` telemetry (not GitHub stars); listing auto-syncs from the repo |
 | awesome-agent-skills (VoltAgent) | **In review** | [PR #988](https://github.com/VoltAgent/awesome-agent-skills/pull/988) — checklist complete, awaiting maintainer |
 | Reddit (r/ChatGPTCoding, r/Frontend, r/TestMyApp) | **Posted** | weekly threads + standalone posts live |
 | dev.to | **Posted** | v2.4.x article live; write a v2.7.0 follow-up (extract + MCP + CI proof) |
