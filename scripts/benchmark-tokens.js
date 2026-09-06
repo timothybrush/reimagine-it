@@ -60,6 +60,7 @@ function artScore(html) {
   if (/donut|donut-chart|donut-keys/.test(html)) n += 2;
   if (/mbar|mini-bar|bar\b/.test(html)) n += 1;
   if (/iso-prism|hero-art-prism/.test(html)) n += 2;
+  if (/orbit-rail/.test(html)) n += 2;
   n += (html.match(/<svg/g) || []).length;
   return n;
 }
@@ -73,7 +74,7 @@ for (const source of SOURCES) {
     const html = generate(source, token);
     const q = quality(html, source);
     const art = artScore(html);
-    rows.push({ source: source.id, token, score: q.score, art, bytes: html.length });
+    rows.push({ source: source.id, token, score: q.score, art, bytes: html.length, classes: classSet(html) });
     totals[token].fidelity += (q.checks.find((c) => c.name === 'title preserved') || {}).passed ? 18 : 0;
     totals[token].usability += q.score;
     totals[token].art += art;
@@ -81,19 +82,40 @@ for (const source of SOURCES) {
   }
 }
 
-// Diversity: per source, average pairwise byte-distance across tokens.
+function classSet(html) {
+  const s = new Set();
+  for (const m of html.matchAll(/\bclass(?:="([^"]+)"|=([A-Za-z0-9_-]+))/g)) {
+    const raw = m[1] || m[2] || '';
+    raw.split(/\s+/).forEach((c) => { if (c) s.add(c); });
+  }
+  const token = (html.match(/data-token="([^"]+)"/) || [])[1];
+  if (token) s.add('token:' + token);
+  return s;
+}
+
+function jaccardDiff(a, b) {
+  let inter = 0;
+  for (const x of a) if (b.has(x)) inter++;
+  const union = a.size + b.size - inter;
+  return union ? 1 - inter / union : 0;
+}
+
+// Diversity: per source, average pairwise byte-distance and class Jaccard.
 let diversity = 0;
+let classDiversity = 0;
 let pairs = 0;
 for (const source of SOURCES) {
   const per = rows.filter((r) => r.source === source.id);
   for (let i = 0; i < per.length; i++) {
     for (let j = i + 1; j < per.length; j++) {
       diversity += Math.abs(per[i].bytes - per[j].bytes) / Math.max(per[i].bytes, per[j].bytes);
+      classDiversity += jaccardDiff(per[i].classes, per[j].classes);
       pairs++;
     }
   }
 }
 diversity = pairs ? (100 * diversity / pairs).toFixed(1) : '0';
+classDiversity = pairs ? (100 * classDiversity / pairs).toFixed(1) : '0';
 
 const avg = (token) => {
   const t = totals[token];
@@ -111,13 +133,13 @@ for (const token of TOKENS) {
   const a = avg(token);
   md += `| \`${token}\` | ${a.fidelity}/18 | ${a.usability}/100 | ${a.art} |\n`;
 }
-md += `\n**Output diversity:** ${diversity}% mean pairwise difference between directions on the same source — no two tokens produce the same page.\n`;
+md += `\n**Output diversity:** ${diversity}% mean pairwise size difference, ${classDiversity}% mean class-set difference between directions on the same source — no two tokens produce the same page.\n`;
 md += `\n**Coverage:** ${rows.length} generated pages (${TOKENS.length} tokens × ${SOURCES.length} sources), all audited structurally. Regenerate with \`node scripts/benchmark-tokens.js\`.\n`;
 
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
 fs.writeFileSync(OUT, md, 'utf8');
 console.log(`wrote ${OUT}`);
-console.log(`rows=${rows.length} diversity=${diversity}%`);
+console.log(`rows=${rows.length} size-diversity=${diversity}% class-diversity=${classDiversity}%`);
 
 let belowBar = 0;
 for (const token of TOKENS) {

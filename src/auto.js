@@ -69,7 +69,7 @@ function subjectLane(content) {
   if (/festival|set times?|after-hours|\bstages?\b.*tickets?|tickets?.*\bstages?\b/.test(text)) return 'festival';
   if (/skate|skateboard|\bdecks?\b|\briders?\b/.test(text)) return 'skate';
   if (profile === 'restaurant' || profile === 'food' || /juice|menu|catering|\bpours?\b/.test(text)) return 'food';
-  if (/streetwear|street wear|\bdrop\b|lookbook|oversized|cargo/.test(text)) return 'fashion';
+  if (/streetwear|street wear|lookbook|oversized|cargo shorts|cargo pants|drop collection|\bthe drop\b/.test(text)) return 'fashion';
   if (/architecture|living building|residences?|sky gardens?|leed|cladding/.test(text)) return 'architecture';
   if (profile === 'saas' || profile === 'tech' || /observability|telemetry|uptime|incident|collector/.test(text)) return 'ops';
   if (/compare|timeline|history|statistics|\bdata\b|report|survey/.test(text) && facts >= 2) return 'data';
@@ -114,9 +114,14 @@ function scoreToken(token, content) {
   if (token === 'showcase') score += (/demo|showcase|motion|catalog|capability|feature|lab/.test(text) ? 12 : 0) + (content.anchors || []).length * 2;
   if (token === 'showcase' && (content.anchors || []).length < 4) score -= 8;
   // Photoshoot/editorial vocabulary earns the lookbook. Deliberately narrow:
-  // "shots" alone matches "flu shots" (a real clinic-bulletin false positive
-  // the reproduction guard caught), so it must ride with photo vocabulary.
-  if (token === 'lookbook') score += (/\bphotoshoots?\b|photo shoots?|\blookbook\b|\brunway\b|editorial spread|\boutfits?\b|\bcollection\b/.test(text) ? 20 : 0) + items;
+  // "shots" / "collection" / a long list of items are not enough — "flu shots"
+  // and a civic "data collection" were real false positives.
+  var lookbookVocab = /\bphotoshoots?\b|photo[- ]shoots?|\blookbook\b|\brunway\b|editorial spread|\boutfits?\b/.test(text)
+    || (/\bcollection\b/.test(text) && /fashion|streetwear|lookbook|runway|outfit|photoshoot|capsule/.test(text));
+  if (token === 'lookbook') {
+    if (lookbookVocab) score += 20 + items;
+    else score -= 24;
+  }
   if (token === 'lookbook' && (content.anchors || []).length < 3) score -= 10;
   // Living-system language earns the particle field. "Community" alone is
   // too common in civic copy to mean a living constellation.
@@ -240,7 +245,7 @@ function qualityScore(output, content, options) {
   (output.match(/#[0-9a-f]{6}\b/gi) || []).forEach(function(hex) { distinctHexes[hex.toLowerCase()] = 1; });
   var fidelity = resultApi && resultApi.sourceFidelity ? resultApi.sourceFidelity(content, output).percentage : 100;
   check('type scale present', /clamp\(/.test(output), 6);
-  check('art direction present', /(?:glyph-tile|donut|mini-bars|iso-prism|iso-stack|plate|mesh|data-wash|constellation|dot-grid|cap-card|orbit-canvas|glass-panel|isotype|ranking-row|field-canvas)/.test(output), 8);
+  check('art direction present', /(?:glyph-tile|donut|mini-bars|iso-prism|iso-stack|plate|mesh|data-wash|constellation|dot-grid|cap-card|orbit-canvas|orbit-rail|glass-panel|isotype|ranking-row|field-canvas)/.test(output), 8);
   check('motion system present', keyframes >= 3, 6);
   // Cap sits at the system's own ceiling: 3 source-declared brand colors +
   // the accent tint family reach 15; anything above that is an unbounded palette.

@@ -220,6 +220,29 @@ test('3js token produces canvas with script', function() {
   assert.ok(out.indexOf('getContext') > 0, 'should have canvas drawing code');
 });
 
+test('3js token carries a 3D-native gutter, not dashboard chrome', function() {
+  var out = generate({content: sampleContent, token: '3js', seed: 42});
+  assert.ok(out.indexOf('iso-prism') > 0, '3js needs an isometric prism');
+  assert.ok(out.indexOf('orbit-rail') > 0, '3js needs an orbit rail of source anchors');
+  assert.ok(out.indexOf('glyph-tile') === -1, '3js must not copy landing/lookbook glyph tiles');
+  assert.ok(out.indexOf('donut-chart') === -1 && out.indexOf('mini-bars') === -1, '3js must not copy dashboard charts');
+});
+
+test('lookbook does not win on flu shots or civic lists', function() {
+  var clinic = fs.readFileSync(path.join(__dirname, '../../examples/community/riverside-clinic/source.html'), 'utf8');
+  var content = extractContent(clinic, 'riverside-clinic.html');
+  var ranked = autoMod.rankTokens(content, 5);
+  assert.notStrictEqual(ranked[0].token, 'lookbook', 'flu-shot bulletin must not Auto to lookbook');
+  assert.ok(ranked.every(function(entry) { return entry.token !== 'lookbook' || entry.score < ranked[0].score; }));
+  assert.ok(autoMod.scoreToken('lookbook', content) < autoMod.scoreToken('infographic', content), 'infographic must beat lookbook on a flu clinic');
+});
+
+test('lookbook still scores a photoshoot collection', function() {
+  var html = '<h1>Spring lookbook</h1><p>Runway photoshoot, twelve outfits, capsule collection.</p><ul><li>Look 01</li><li>Look 02</li><li>Look 03</li></ul>';
+  var content = extractContent(html, 'lookbook.html');
+  assert.ok(autoMod.scoreToken('lookbook', content) > 0, 'true lookbook vocab should score');
+});
+
 test('simulation token produces timeline', function() {
   var out = generate({content: sampleContent, token: 'simulation', seed: 42});
   assert.ok(out.indexOf('tl') > 0 || out.indexOf('timeline') > 0 || out.indexOf('track') > 0, 'should have timeline elements');
@@ -235,28 +258,52 @@ test('all tokens include craft-floor CSS', function() {
   });
 });
 
-test('no token embeds a literal undefined or drops shared CSS systems', function() {
+test('no token embeds a literal undefined; kits stay token-specific', function() {
   // Regression: the token dispatch switch used to run above the
-  // `var bandCss` / `var artCss` assignments inside generate(), so every
-  // page shipped those entire CSS systems as a literal `undefined` while
-  // still passing the craft audit (which inspects body markup, not CSS).
-  var all = ['webpage','landing','dashboard','infographic','cinematic','artistic','photography','svg','3js','simulation','glass','editorial','motion','gradient','showcase'];
-  // 3js and glass are self-contained (canvas / glass-panel systems) and
-  // never embed the shared band/art CSS; every other token must carry at
-  // least one marker from those shared systems.
-  var shared = ['.mesh{', '.glyph-tile{', '.iso-prism{', '.donut-chart{', '.band-footer{'];
-  var contents = [
-    sampleContent,
-    { title: 'Numbers heavy', palette: {ground:'#0b0f19',accent:'#ffd400',muted:'#8896a8',surface:'#141a26',ink:'#fff'}, headings: ['Season 2026', 'Loadout', 'Join the hunt'], paragraphs: ['Become a real venator. Online crypto-shooter where you trade, earn, and profit.'], items: [], links: [{href:'https://example.com',label:'Play now'}], emails: [], dates: ['2026', 'July 4, 2026'], numbers: ['336,000', '40,000'], properNouns: [], nouns: [], anchors: ['Venator', 'Game overview', 'Join the hunt', 'Crypto battle royale'], profile: 'default', density: 'medium' },
-  ];
-  contents.forEach(function(content) {
-    all.forEach(function(token) {
-      var out = generate({content: content, token: token, seed: 7});
-      assert.ok(out.indexOf('undefined') === -1, token + ': output embeds a literal undefined');
-      if (shared.some(function(marker) { return out.indexOf(marker) >= 0; })) return; // system present
-      assert.ok(token === '3js' || token === 'glass', token + ': missing every shared CSS system marker');
+  // kit CSS assignments inside generate(), so every page shipped those
+  // entire CSS systems as a literal `undefined` while still passing the
+  // craft audit (which inspects body markup, not CSS).
+  var generateMod = require('../../src/generate');
+  var all = generateMod.TOKENS;
+  var kits = {
+    webpage: ['.iso-prism{', '.data-wash{', '.band-footer{'],
+    landing: ['.mesh{', '.glyph-tile{', '.iso-prism{', '.band-footer{'],
+    dashboard: ['.donut-chart{'],
+    infographic: ['.glyph-tile{', '.donut-chart{', '.data-wash{', '.constellation{'],
+    cinematic: ['.glyph-tile{'],
+    artistic: ['.glyph-tile{'],
+    photography: ['.glyph-tile{'],
+    svg: ['.donut-chart{'],
+    '3js': ['.iso-prism{', '.orbit-rail{'],
+    simulation: ['.glyph-tile{'],
+    glass: ['.iso-prism{'],
+    editorial: ['.mini-bars{'],
+    motion: ['.glyph-tile{'],
+    gradient: ['.glyph-tile{'],
+    showcase: ['.glyph-tile{', '.bento{'],
+    lookbook: ['.glyph-tile{'],
+    particles: []
+  };
+  var fingerprints = {};
+  all.forEach(function(token) {
+    var out = generate({content: sampleContent, token: token, seed: 7});
+    assert.ok(out.indexOf('undefined') === -1, token + ': output embeds a literal undefined');
+    assert.ok(out.indexOf('data-token="' + token + '"') >= 0, token + ': missing data-token');
+    var needed = kits[token];
+    assert.ok(needed, token + ': no kit expectation');
+    needed.forEach(function(marker) {
+      assert.ok(out.indexOf(marker) >= 0, token + ': missing kit marker ' + marker);
     });
+    var fp = ['mesh', 'glyph-tile', 'iso-prism', 'donut-chart', 'band-footer', 'orbit-rail', 'bento-tile', 'glass-panel', 'field-canvas', 'look-marquee']
+      .filter(function(mark) { return out.indexOf(mark) >= 0; })
+      .join('+');
+    fingerprints[token] = fp;
   });
+  var unique = Object.keys(fingerprints).reduce(function(set, token) {
+    set[fingerprints[token]] = (set[fingerprints[token]] || 0) + 1;
+    return set;
+  }, {});
+  assert.ok(Object.keys(unique).length >= 10, 'token chrome fingerprints must not collapse to one kit (got ' + Object.keys(unique).length + ')');
 });
 
 test('palette-constrained check counts hexes case-insensitively and tolerates brand-color sources', function() {

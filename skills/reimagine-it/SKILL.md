@@ -6,9 +6,10 @@ description: >-
   already in that file. CLI: npx reimagine-it --auto -i page.html -o out.html;
   also variations, lock, and audit. Use when the user says /reimagine-it, "reimagine it", "reinvent this",
   "redesign this page", "make an infographic", wants a content-aware redesign
-  or a visual leap instead of a mood board. Tokens: webpage, infographic,
+  or a visual leap instead of a mood board.   Tokens: webpage, infographic,
   svg, 3js, simulation, artistic, cinematic, dashboard, photography, landing,
-  plus leftover words as a brief. Also /reimagine-it audit for quality checks.
+  lookbook, particles, plus leftover words as a brief. Also /reimagine-it audit
+  for quality checks. The agent runs the CLI; it does not hand-author the page.
   Installed via npx skills add Kayforkind/reimagine-it or plugin marketplace.
   Not /better. Not a mood board. Does not ingest PDF, PPTX, or DOCX.
 license: MIT
@@ -80,6 +81,23 @@ If `local.md` exists beside this file, Read it after this skill (host chairs, or
 
 Say once: **"Running /reimagine-it."**
 
+## Engine — run the CLI; do not invent the page
+
+The shipped product is the **CLI**. `/reimagine-it` is orchestration around it, not a license to hand-author HTML.
+
+1. If the source is not HTML, wrap or extract it into HTML first. Do not claim the engine ingested PDF, PPTX, or DOCX.
+2. Run the matching command and use the file it writes:
+
+```bash
+npx reimagine-it --auto -i page.html -o redesign.html
+npx reimagine-it -i page.html -t infographic -o poster.html
+npx reimagine-it variations -i page.html -n 3 -o review/
+npx reimagine-it extract -i page.html
+npx reimagine-it audit redesign.html
+```
+
+3. Open that artifact. Report from it. If `npx reimagine-it` cannot run, ship `REIMAGINED: partial` and name the exact blocker — do not substitute a model-written page.
+
 ## Categories (you choose · agent decides)
 
 Optional tokens. **Combine freely.** You pick tokens; the agent picks questions, form (if unset), mutations, and the stretch.
@@ -135,7 +153,7 @@ Every mode **must ship an artifact** (unless `--plan-only`). A list of vibes is 
 2. Sniff context. Interview **only** if `interview` was chosen.
 3. Name the **adjacent possible**: spare parts already here + one combination they did not request.
 4. Pick four notes in private (device · leap · craft · effect). Answer with mutations, not mood words.
-5. Route a **hero form**. Build it in the place that form belongs (in-repo capability vs seeing-tool folder).
+5. Route a **hero form**. Run the CLI into that form (`-t` or `--auto`). Do not hand-author a replacement page.
 6. Name **one stretch** they did not know was in bounds. Build it if cheap; otherwise give the exact next command.
 7. Kill list in notes.md. No "wow". No prompt-slop. No TED-over-B-roll.
 8. Paid gate: code, SVG, HTML, PDF, docx, pptx, local demos are free. Ask before billed image/video/model APIs.
@@ -404,6 +422,7 @@ Lead the user-facing reply with the artifact and the stretch, not the protocol.
 - **Report `shipped` without the visual verification pass** (5.b) — no exceptions
 - **Paint a plate that literally reads `blank`, `placeholder`, `TBD`, `TODO`, `lorem`, `sample`, `caption`, `…`, `[…]`, `Title goes here`, or any alt-text stand-in.** Empty slot → delete the slot. Real content only.
 - **Ship a render with clipped or overlapped text** (e.g. a foreground shape covering half a label). Fix z-index / padding / `overflow` before reporting `shipped`.
+- **Hand-author a redesigned page when `npx reimagine-it` can run.** The CLI is the engine; the skill is the wrapper.
 - **Claim the CLI redesigns PDF, PPTX, DOCX, MOBI, or “any file.”** HTML in, HTML out. Host conversion is extra and optional.
 - **Silently pretend a missing export toolchain ran.** If the user asked for PDF/PPTX and the tool is missing, ship HTML and name the next command.
 - **Ship a webpage output that fails the craft floor (§5.c) on any of: `::selection` styled, `:focus-visible` styled, `prefers-reduced-motion` block present and decomposed correctly, compositor-only motion, no `transition: all`, no `outline: 0` without a real replacement, no autoplay sound unless `--sound` was passed.** Patch in one pass or downgrade to `partial`.

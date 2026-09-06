@@ -216,55 +216,54 @@ The intended outcome is **fresh when requested, consistent when approved** — n
 
 ## Install
 
-### CLI (npm)
+Two doors. The CLI writes the page. The skill tells an agent to run that CLI. Host plugin wrappers are the same skill.
+
+Not Keith Mangold’s [Reimagine It](https://reimagineit.ai) interview SaaS (Product Hunt slug `reimagine-it`). This repo is Kayforkind’s Content-Derived Design CLI — npm package [`reimagine-it`](https://www.npmjs.com/package/reimagine-it), gallery [kayforkind.github.io/reimagine-it](https://kayforkind.github.io/reimagine-it/).
+
+### 1. CLI (the engine)
 
 ```bash
 npx reimagine-it --auto -i page.html -o redesign.html
 ```
 
-Or install once:
+No install required. Package: [npmjs.com/package/reimagine-it](https://www.npmjs.com/package/reimagine-it) · **2.9.0**.
 
 ```bash
-npm install -g reimagine-it
-reimagine-it --auto -i page.html -o redesign.html
+npx reimagine-it extract -i page.html -o signals.json
+npx reimagine-it variations -i page.html -n 4 -o review/
+npx reimagine-it lock -i brand.html -o house.lock.json
+npx reimagine-it audit redesign.html
+npx reimagine-it mcp
 ```
 
-Package: [npmjs.com/package/reimagine-it](https://www.npmjs.com/package/reimagine-it) · current release **2.9.0**.
+No-install demo: [live playground](https://kayforkind.github.io/reimagine-it/#playground).
 
-More commands:
-
-```bash
-npx reimagine-it extract -i page.html -o signals.json   # the facts the engine reads, as JSON
-npx reimagine-it variations -i page.html -n 4 -o review/ # several directions + contrast sheet
-npx reimagine-it lock -i brand.html -o house.lock.json   # capture a design's surface
-npx reimagine-it audit redesign.html                     # 19 deterministic craft checks
-npx reimagine-it mcp                                     # MCP server (8 tools, stdio)
-```
-
-### Agent Skill
+### 2. Agent skill (orchestration)
 
 ```bash
 npx skills add Kayforkind/reimagine-it
 ```
 
-Works with Agent Skills hosts including Cursor, Codex, Claude Code, Copilot, Gemini CLI, Windsurf, and Factory Droid. The skill is the orchestration layer; the dependency-free CLI is the artifact layer.
+Then `/reimagine-it` in Cursor, Codex, Claude Code, Copilot, Gemini CLI, Windsurf, or Factory Droid. The skill must call the CLI; it must not hand-author HTML.
 
-### Claude Code
+The [skills.sh listing](https://www.skills.sh/kayforkind/reimagine-it) counts those `npx skills add` installs. It is not GitHub stars. A low badge means few catalog installs, not a missing product.
+
+<details>
+<summary>Host plugin wrappers (same skill)</summary>
 
 ```text
 /plugin marketplace add Kayforkind/reimagine-it
 /plugin install reimagine-it@reimagine-it
 ```
 
-### Codex and Factory Droid
-
 ```bash
 codex plugin marketplace add Kayforkind/reimagine-it
 codex plugin add reimagine-it@reimagine-it
-
 droid plugin marketplace add https://github.com/Kayforkind/reimagine-it
 droid plugin install reimagine-it@reimagine-it --scope user
 ```
+
+</details>
 
 ## Design Health in CI
 
@@ -360,7 +359,7 @@ Tools:
 
 ## Measured quality
 
-Every direction is benchmarked against the same bar Auto itself applies — standalone HTML, source title and anchors retained, focus-visible, reduced-motion, `::selection`, no placeholder copy, no external asset fetch. All 17 tokens × 4 representative sources score **100/100 usability and full fidelity**, with **22.7% mean pairwise output diversity** between directions on the same source (no two tokens produce the same page).
+Every direction is benchmarked against the same bar Auto itself applies — standalone HTML, source title and anchors retained, focus-visible, reduced-motion, `::selection`, no placeholder copy, no external asset fetch. All 17 tokens × 4 representative sources score **100/100 usability and full fidelity**, with **94.6% mean class-set difference** between directions on the same source (no two tokens produce the same page). Structural difference is the meaningful metric: two pages can share a file size while shipping different markup. For transparency, the size-distance figure is **17.2%** and tracked alongside it in [benchmark/BENCHMARK.md](benchmark/BENCHMARK.md) — file size was never a proof of sameness or difference.
 
 | Direction | Fidelity (title kept) | Usability (quality /100) | Content art |
 |---|---|---|---|
