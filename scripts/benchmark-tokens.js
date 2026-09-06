@@ -61,6 +61,10 @@ function artScore(html) {
   if (/mbar|mini-bar|bar\b/.test(html)) n += 1;
   if (/iso-prism|hero-art-prism/.test(html)) n += 2;
   if (/orbit-rail/.test(html)) n += 2;
+  if (/filmstrip-frame/.test(html)) n += 2;
+  if (/rank-row/.test(html)) n += 2;
+  if (/head-sheet|ed-sheet/.test(html)) n += 2;
+  if (/motion-rings/.test(html)) n += 2;
   n += (html.match(/<svg/g) || []).length;
   return n;
 }

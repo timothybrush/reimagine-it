@@ -1,0 +1,285 @@
+{
+  "mode": "auto",
+  "token": "landing",
+  "seed": 995488332,
+  "score": 172,
+  "rationale": "The source has an outward-facing action or product-like structure. Evidence: 5 anchors, 1 measurable facts.",
+  "candidates": [
+    {
+      "token": "landing",
+      "seed": 995488332,
+      "fit": 18,
+      "quality": 136,
+      "total": 172,
+      "checks": [
+        {
+          "name": "standalone HTML",
+          "passed": true
+        },
+        {
+          "name": "title preserved",
+          "passed": true
+        },
+        {
+          "name": "source anchors retained",
+          "passed": true
+        },
+        {
+          "name": "focus-visible",
+          "passed": true
+        },
+        {
+          "name": "reduced motion",
+          "passed": true
+        },
+        {
+          "name": "selection styling",
+          "passed": true
+        },
+        {
+          "name": "no placeholder copy",
+          "passed": true
+        },
+        {
+          "name": "no external asset fetch",
+          "passed": true
+        },
+        {
+          "name": "type scale present",
+          "passed": true
+        },
+        {
+          "name": "art direction present",
+          "passed": true
+        },
+        {
+          "name": "motion system present",
+          "passed": true
+        },
+        {
+          "name": "palette constrained",
+          "passed": true
+        },
+        {
+          "name": "source fidelity ≥ 60%",
+          "passed": true
+        },
+        {
+          "name": "semantic landmarks",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "token": "editorial",
+      "seed": -522448451,
+      "fit": 15,
+      "quality": 136,
+      "total": 166,
+      "checks": [
+        {
+          "name": "standalone HTML",
+          "passed": true
+        },
+        {
+          "name": "title preserved",
+          "passed": true
+        },
+        {
+          "name": "source anchors retained",
+          "passed": true
+        },
+        {
+          "name": "focus-visible",
+          "passed": true
+        },
+        {
+          "name": "reduced motion",
+          "passed": true
+        },
+        {
+          "name": "selection styling",
+          "passed": true
+        },
+        {
+          "name": "no placeholder copy",
+          "passed": true
+        },
+        {
+          "name": "no external asset fetch",
+          "passed": true
+        },
+        {
+          "name": "type scale present",
+          "passed": true
+        },
+        {
+          "name": "art direction present",
+          "passed": true
+        },
+        {
+          "name": "motion system present",
+          "passed": true
+        },
+        {
+          "name": "palette constrained",
+          "passed": true
+        },
+        {
+          "name": "source fidelity ≥ 60%",
+          "passed": true
+        },
+        {
+          "name": "semantic landmarks",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "token": "gradient",
+      "seed": -1661923469,
+      "fit": 13,
+      "quality": 136,
+      "total": 162,
+      "checks": [
+        {
+          "name": "standalone HTML",
+          "passed": true
+        },
+        {
+          "name": "title preserved",
+          "passed": true
+        },
+        {
+          "name": "source anchors retained",
+          "passed": true
+        },
+        {
+          "name": "focus-visible",
+          "passed": true
+        },
+        {
+          "name": "reduced motion",
+          "passed": true
+        },
+        {
+          "name": "selection styling",
+          "passed": true
+        },
+        {
+          "name": "no placeholder copy",
+          "passed": true
+        },
+        {
+          "name": "no external asset fetch",
+          "passed": true
+        },
+        {
+          "name": "type scale present",
+          "passed": true
+        },
+        {
+          "name": "art direction present",
+          "passed": true
+        },
+        {
+          "name": "motion system present",
+          "passed": true
+        },
+        {
+          "name": "palette constrained",
+          "passed": true
+        },
+        {
+          "name": "source fidelity ≥ 60%",
+          "passed": true
+        },
+        {
+          "name": "semantic landmarks",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "anchors": [
+    "Hurricane Season Outlook",
+    "National Weather Service",
+    "Atlantic",
+    "June",
+    "November"
+  ],
+  "facts": {
+    "headings": 3,
+    "paragraphs": 3,
+    "items": 5,
+    "dates": 0,
+    "numbers": 1,
+    "links": 1
+  },
+  "source": "examples/public-sources/noaa-hurricane-outlook/source.html",
+  "artifact": "D:\\FreeBuff\\GoalDigger\\reimagine-it\\examples\\public-sources\\noaa-hurricane-outlook\\auto.html",
+  "fidelity": {
+    "preserved": 11,
+    "detected": 11,
+    "percentage": 100,
+    "checks": {
+      "title": [
+        {
+          "value": "Hurricane Season Outlook — National Weather Service",
+          "preserved": true
+        }
+      ],
+      "headings": [
+        {
+          "value": "Hurricane Season Outlook — National Weather Service",
+          "preserved": true
+        },
+        {
+          "value": "Saffir-Simpson scale",
+          "preserved": true
+        },
+        {
+          "value": "Prepare by June",
+          "preserved": true
+        }
+      ],
+      "dates": [],
+      "numbers": [
+        {
+          "value": "7 days",
+          "preserved": true
+        }
+      ],
+      "emails": [],
+      "anchors": [
+        {
+          "value": "Hurricane Season Outlook",
+          "preserved": true
+        },
+        {
+          "value": "National Weather Service",
+          "preserved": true
+        },
+        {
+          "value": "Atlantic",
+          "preserved": true
+        },
+        {
+          "value": "June",
+          "preserved": true
+        },
+        {
+          "value": "November",
+          "preserved": true
+        }
+      ],
+      "links": [
+        {
+          "value": "https://www.weather.gov",
+          "label": "weather.gov",
+          "preserved": true
+        }
+      ]
+    }
+  }
+}

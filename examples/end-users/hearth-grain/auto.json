@@ -216,8 +216,8 @@
     "numbers": 8,
     "links": 1
   },
-  "source": "examples/end-users/hearth-grain/source.html",
-  "artifact": "D:\\Projects\\reimagine-it\\examples\\end-users\\hearth-grain\\auto.html",
+  "source": "D:\\FreeBuff\\GoalDigger\\reimagine-it\\examples\\end-users\\hearth-grain\\source.html",
+  "artifact": "D:\\FreeBuff\\GoalDigger\\reimagine-it\\examples\\end-users\\hearth-grain\\auto.html",
   "fidelity": {
     "preserved": 22,
     "detected": 22,

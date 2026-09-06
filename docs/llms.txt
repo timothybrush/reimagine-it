@@ -46,6 +46,7 @@ Tools: `reimagine`, `design_auto`, `design_variations`, `design_lock`, `extract_
 
 - Live playground (runs in the browser, no install): https://kayforkind.github.io/reimagine-it/#playground
 - Nine committed journeys with auditable reports: https://github.com/Kayforkind/reimagine-it/tree/main/examples/end-users
+- Public-domain proof lane (NPS, NASA, NOAA pages rebuilt by Auto): https://github.com/Kayforkind/reimagine-it/tree/main/examples/public-sources
 - Case studies: https://github.com/Kayforkind/reimagine-it/blob/main/docs/CASE_STUDIES.md
 - Method (Content-Derived Design): https://github.com/Kayforkind/reimagine-it/blob/main/docs/MANIFESTO.md
 - Contributing (community proof cases welcome): https://github.com/Kayforkind/reimagine-it/blob/main/CONTRIBUTING.md

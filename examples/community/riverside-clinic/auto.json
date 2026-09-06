@@ -216,8 +216,8 @@
     "numbers": 7,
     "links": 1
   },
-  "source": "examples\\community\\riverside-clinic\\source.html",
-  "artifact": "D:\\Projects\\reimagine-it\\examples\\community\\riverside-clinic\\auto.html",
+  "source": "examples/community/riverside-clinic/source.html",
+  "artifact": "D:\\FreeBuff\\GoalDigger\\reimagine-it\\examples\\community\\riverside-clinic\\auto.html",
   "fidelity": {
     "preserved": 28,
     "detected": 28,

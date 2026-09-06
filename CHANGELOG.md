@@ -8,7 +8,7 @@ All notable changes to reimagine-it.
 
 - **Skill is a wrapper, not a second engine.** `/reimagine-it` must run `npx reimagine-it`. Hand-authoring HTML when the CLI can run is a fail.
 - **Lookbook Auto false positive.** Flu-shot / civic list pages no longer earn lookbook from item count or a bare `collection` / `drop` match. Fashion lane requires streetwear/lookbook language, not `\bdrop\b`.
-- **Per-token design kits.** Each direction ships only the CSS primitives it uses (glyphs, charts, prism, mesh, wash, bands). Shared chrome no longer makes 17 pages the same stylesheet. The 3js gutter is an orbit-rail + prism, not dashboard donuts. Benchmark class-set difference is **94.6%** (the old 22.7% figure was file-size distance).
+- **Per-token design kits and layout grammar.** Each direction ships only the CSS primitives it uses — and the previously-converging clusters now carry unique layouts: cinematic is a filmstrip + timecode chapters, photography is monospace-captioned plates without overlays, motion is orbit rings with labeled anchors, dashboard/infographic/editorial distinguish charts vs ranked bars vs data tables. The 3js gutter is an orbit-rail + prism. Benchmark class-set difference is **96.5%** (the old 22.7% figure was file-size distance; the worst pair, webpage+landing, sits at 76% — two genuinely different products).
 - **Install is two doors.** README leads with CLI + `npx skills add`; host plugins are collapsed. Site, npm description, and llms.txt disambiguate Keith Mangold’s Reimagine It SaaS.
 - **skills.sh** install badge is `npx skills add` telemetry, not GitHub stars.
 - **CodeQL init/analyze stay on the same SHA** (v4.37.9) so Dependabot cannot split them. Scorecard SARIF upload matches.

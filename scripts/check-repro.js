@@ -53,6 +53,27 @@ function exampleConfig() {
       });
     }
   }
+
+  // Public-source proof cases: real public-domain pages, Auto-picked token,
+  // pinned seed 1 so the guard can reproduce byte-identically.
+  const publicDir = path.join(root, 'examples/public-sources');
+  if (fs.existsSync(publicDir)) {
+    for (const entry of fs.readdirSync(publicDir, { withFileTypes: true })) {
+      if (!entry.isDirectory()) continue;
+      const dir = 'examples/public-sources/' + entry.name;
+      const source = path.join(root, dir, 'source.html');
+      const report = path.join(root, dir, 'auto.json');
+      if (!fs.existsSync(source) || !fs.existsSync(report)) continue;
+      journeys.push({
+        slug: 'public:' + entry.name,
+        source: dir + '/source.html',
+        seed: '1',
+        brief: '',
+        community: true,
+        dir,
+      });
+    }
+  }
   return journeys.map((j) => ({ ...j, dir: j.dir || path.join('examples/end-users', j.slug) }));
 }
 
@@ -75,8 +96,11 @@ for (const ex of exampleConfig()) {
     continue;
   }
 
-  const outHtml = path.join(tmp, ex.slug + '.html');
-  const outJson = path.join(tmp, ex.slug + '.json');
+  // Slugs may carry a lane prefix (`public:nps-yellowstone`); colons are
+  // reserved on Windows filesystems, so sanitize for scratch filenames.
+  const fileKey = ex.slug.replace(/[^A-Za-z0-9._-]/g, '-');
+  const outHtml = path.join(tmp, fileKey + '.html');
+  const outJson = path.join(tmp, fileKey + '.json');
   const argv = [
     'scripts/auto.js',
     '--input', ex.source,

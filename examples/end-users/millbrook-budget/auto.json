@@ -216,8 +216,8 @@
     "numbers": 10,
     "links": 1
   },
-  "source": "examples/end-users/millbrook-budget/source.html",
-  "artifact": "D:\\Projects\\reimagine-it\\examples\\end-users\\millbrook-budget\\auto.html",
+  "source": "D:\\FreeBuff\\GoalDigger\\reimagine-it\\examples\\end-users\\millbrook-budget\\source.html",
+  "artifact": "D:\\FreeBuff\\GoalDigger\\reimagine-it\\examples\\end-users\\millbrook-budget\\auto.html",
   "fidelity": {
     "preserved": 30,
     "detected": 30,

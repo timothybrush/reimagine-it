@@ -48,15 +48,15 @@ Real sources, real CLI output — nine committed journeys. The seven launch jour
 
 | Source | Auto | Score | Fidelity | Alternates |
 |---|---|---|---|---|
-| [Venator](examples/end-users/venator/) | `gradient` | 246 | 100% | `landing`, `artistic` |
-| [Crimson Circuit](examples/end-users/crimson-circuit/) | `cinematic` | 258 | 100% | `gradient`, `landing` |
-| [Velocita](examples/end-users/velocita/) | `artistic` | 240 | 100% | `gradient`, `landing` |
-| [Maracuyá](examples/end-users/maracuya/) | `landing` | 246 | 100% | `photography`, `gradient` |
-| [Flick Fits](examples/end-users/flick/) | `photography` | 250 | 100% | `showcase`, `landing` |
-| [Meridian Tower](examples/end-users/meridian/) | `3js` | 260 | 100% | `editorial`, `svg` |
-| [Horizon](examples/end-users/horizon/) | `dashboard` | 330 | 100% | `gradient`, `landing` |
-| [Hearth & Grain](examples/end-users/hearth-grain/) | `photography` | 226 | 100% | `landing`, `editorial` |
-| [Millbrook](examples/end-users/millbrook-budget/) | `infographic` | 278 | 100% | `simulation`, `editorial` |
+| [Venator](examples/end-users/venator/) | `gradient` | 246 | 100% | `artistic`, `landing` |
+| [Crimson Circuit](examples/end-users/crimson-circuit/) | `cinematic` | 258 | 100% | `gradient`, `motion` |
+| [Velocita](examples/end-users/velocita/) | `artistic` | 240 | 100% | `gradient`, `editorial` |
+| [Maracuyá](examples/end-users/maracuya/) | `landing` | 246 | 100% | `editorial`, `photography` |
+| [Flick Fits](examples/end-users/flick/) | `photography` | 250 | 100% | `showcase`, `editorial` |
+| [Meridian Tower](examples/end-users/meridian/) | `3js` | 260 | 100% | `editorial`, `cinematic` |
+| [Horizon](examples/end-users/horizon/) | `dashboard` | 330 | 100% | `infographic`, `gradient` |
+| [Hearth & Grain](examples/end-users/hearth-grain/) | `photography` | 226 | 100% | `dashboard`, `gradient` |
+| [Millbrook](examples/end-users/millbrook-budget/) | `infographic` | 278 | 100% | `simulation`, `dashboard` |
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Kayforkind/reimagine-it/main/docs/examples/end-users/venator/auto-desktop.png" width="280" alt="Venator Auto → signal-yellow gradient arena">
@@ -71,6 +71,8 @@ Real sources, real CLI output — nine committed journeys. The seven launch jour
 </p>
 
 <p align="center"><sub>Auto desktops from the committed engine. Before/after composites and two alternatives live in each <a href="examples/end-users/">bundle</a>.</sub></p>
+
+**Proven beyond the showcase** — [examples/public-sources/](examples/public-sources/) redesigns **real public-domain government pages** (National Park Service, NASA, NOAA/NWS) with no declared palette for the engine to lean on: Artemis II → `3js` orbit (100%), hurricane outlook → `landing` (100%), Yellowstone bulletin → `editorial` (84%). Community proofs in [examples/community/](examples/community/) cover jobs the journeys don't — a clinic bulletin → `infographic`, a fashion campaign → `lookbook`. Every artifact regenerates byte-identically in CI.
 
 **One command, three furnished designs** — point `/reimagine-it` at a building page and it ships an orbitable 3D object, a magazine feature, and a living SVG diagram from the same source: `npx reimagine-it --auto -i meridian.html`. [See the suite →](https://kayforkind.github.io/reimagine-it/#suite)
 
@@ -359,7 +361,7 @@ Tools:
 
 ## Measured quality
 
-Every direction is benchmarked against the same bar Auto itself applies — standalone HTML, source title and anchors retained, focus-visible, reduced-motion, `::selection`, no placeholder copy, no external asset fetch. All 17 tokens × 4 representative sources score **100/100 usability and full fidelity**, with **94.6% mean class-set difference** between directions on the same source (no two tokens produce the same page). Structural difference is the meaningful metric: two pages can share a file size while shipping different markup. For transparency, the size-distance figure is **17.2%** and tracked alongside it in [benchmark/BENCHMARK.md](benchmark/BENCHMARK.md) — file size was never a proof of sameness or difference.
+Every direction is benchmarked against the same bar Auto itself applies — standalone HTML, source title and anchors retained, focus-visible, reduced-motion, `::selection`, no placeholder copy, no external asset fetch. All 17 tokens × 4 representative sources score **100/100 usability and full fidelity**, with **96.5% mean class-set difference** between directions on the same source (no two tokens produce the same page; the most-similar pair, webpage+landing, is 76% — two genuinely different products). Structural difference is the meaningful metric: two pages can share a file size while shipping different markup. For transparency, the size-distance figure is **18.6%** and tracked alongside it in [benchmark/BENCHMARK.md](benchmark/BENCHMARK.md) — file size was never a proof of sameness or difference.
 
 | Direction | Fidelity (title kept) | Usability (quality /100) | Content art |
 |---|---|---|---|

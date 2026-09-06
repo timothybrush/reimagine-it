@@ -1,0 +1,302 @@
+{
+  "mode": "auto",
+  "token": "3js",
+  "seed": 194546591,
+  "score": 172,
+  "rationale": "The source has an outward-facing action or product-like structure. Evidence: 5 anchors, 5 measurable facts.",
+  "candidates": [
+    {
+      "token": "3js",
+      "seed": 194546591,
+      "fit": 18,
+      "quality": 136,
+      "total": 172,
+      "checks": [
+        {
+          "name": "standalone HTML",
+          "passed": true
+        },
+        {
+          "name": "title preserved",
+          "passed": true
+        },
+        {
+          "name": "source anchors retained",
+          "passed": true
+        },
+        {
+          "name": "focus-visible",
+          "passed": true
+        },
+        {
+          "name": "reduced motion",
+          "passed": true
+        },
+        {
+          "name": "selection styling",
+          "passed": true
+        },
+        {
+          "name": "no placeholder copy",
+          "passed": true
+        },
+        {
+          "name": "no external asset fetch",
+          "passed": true
+        },
+        {
+          "name": "type scale present",
+          "passed": true
+        },
+        {
+          "name": "art direction present",
+          "passed": true
+        },
+        {
+          "name": "motion system present",
+          "passed": true
+        },
+        {
+          "name": "palette constrained",
+          "passed": true
+        },
+        {
+          "name": "source fidelity ≥ 60%",
+          "passed": true
+        },
+        {
+          "name": "semantic landmarks",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "token": "cinematic",
+      "seed": -1625717427,
+      "fit": 18,
+      "quality": 136,
+      "total": 172,
+      "checks": [
+        {
+          "name": "standalone HTML",
+          "passed": true
+        },
+        {
+          "name": "title preserved",
+          "passed": true
+        },
+        {
+          "name": "source anchors retained",
+          "passed": true
+        },
+        {
+          "name": "focus-visible",
+          "passed": true
+        },
+        {
+          "name": "reduced motion",
+          "passed": true
+        },
+        {
+          "name": "selection styling",
+          "passed": true
+        },
+        {
+          "name": "no placeholder copy",
+          "passed": true
+        },
+        {
+          "name": "no external asset fetch",
+          "passed": true
+        },
+        {
+          "name": "type scale present",
+          "passed": true
+        },
+        {
+          "name": "art direction present",
+          "passed": true
+        },
+        {
+          "name": "motion system present",
+          "passed": true
+        },
+        {
+          "name": "palette constrained",
+          "passed": true
+        },
+        {
+          "name": "source fidelity ≥ 60%",
+          "passed": true
+        },
+        {
+          "name": "semantic landmarks",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "token": "landing",
+      "seed": 995488332,
+      "fit": 18,
+      "quality": 136,
+      "total": 172,
+      "checks": [
+        {
+          "name": "standalone HTML",
+          "passed": true
+        },
+        {
+          "name": "title preserved",
+          "passed": true
+        },
+        {
+          "name": "source anchors retained",
+          "passed": true
+        },
+        {
+          "name": "focus-visible",
+          "passed": true
+        },
+        {
+          "name": "reduced motion",
+          "passed": true
+        },
+        {
+          "name": "selection styling",
+          "passed": true
+        },
+        {
+          "name": "no placeholder copy",
+          "passed": true
+        },
+        {
+          "name": "no external asset fetch",
+          "passed": true
+        },
+        {
+          "name": "type scale present",
+          "passed": true
+        },
+        {
+          "name": "art direction present",
+          "passed": true
+        },
+        {
+          "name": "motion system present",
+          "passed": true
+        },
+        {
+          "name": "palette constrained",
+          "passed": true
+        },
+        {
+          "name": "source fidelity ≥ 60%",
+          "passed": true
+        },
+        {
+          "name": "semantic landmarks",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "anchors": [
+    "Artemis",
+    "Mission Overview Artemis",
+    "NASA",
+    "Space Launch System",
+    "Orion"
+  ],
+  "facts": {
+    "headings": 3,
+    "paragraphs": 3,
+    "items": 5,
+    "dates": 1,
+    "numbers": 4,
+    "links": 1
+  },
+  "source": "examples/public-sources/nasa-artemis2/source.html",
+  "artifact": "D:\\FreeBuff\\GoalDigger\\reimagine-it\\examples\\public-sources\\nasa-artemis2\\auto.html",
+  "fidelity": {
+    "preserved": 15,
+    "detected": 15,
+    "percentage": 100,
+    "checks": {
+      "title": [
+        {
+          "value": "Artemis II — Mission Overview",
+          "preserved": true
+        }
+      ],
+      "headings": [
+        {
+          "value": "Artemis II — Mission Overview",
+          "preserved": true
+        },
+        {
+          "value": "Flight plan",
+          "preserved": true
+        },
+        {
+          "value": "Program record so far",
+          "preserved": true
+        }
+      ],
+      "dates": [
+        {
+          "value": "2022",
+          "preserved": true
+        }
+      ],
+      "numbers": [
+        {
+          "value": "39B",
+          "preserved": true
+        },
+        {
+          "value": "230,000",
+          "preserved": true
+        },
+        {
+          "value": "25.5 days",
+          "preserved": true
+        },
+        {
+          "value": "43,892",
+          "preserved": true
+        }
+      ],
+      "emails": [],
+      "anchors": [
+        {
+          "value": "Artemis",
+          "preserved": true
+        },
+        {
+          "value": "Mission Overview Artemis",
+          "preserved": true
+        },
+        {
+          "value": "NASA",
+          "preserved": true
+        },
+        {
+          "value": "Space Launch System",
+          "preserved": true
+        },
+        {
+          "value": "Orion",
+          "preserved": true
+        }
+      ],
+      "links": [
+        {
+          "value": "https://www.nasa.gov/artemis",
+          "label": "nasa.gov/artemis",
+          "preserved": true
+        }
+      ]
+    }
+  }
+}

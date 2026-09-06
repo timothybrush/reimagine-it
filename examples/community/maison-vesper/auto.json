@@ -216,8 +216,8 @@
     "numbers": 3,
     "links": 1
   },
-  "source": "examples\\community\\maison-vesper\\source.html",
-  "artifact": "D:\\Projects\\reimagine-it\\examples\\community\\maison-vesper\\auto.html",
+  "source": "examples/community/maison-vesper/source.html",
+  "artifact": "D:\\FreeBuff\\GoalDigger\\reimagine-it\\examples\\community\\maison-vesper\\auto.html",
   "fidelity": {
     "preserved": 19,
     "detected": 19,
